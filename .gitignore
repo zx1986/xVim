@@ -2,3 +2,6 @@
 *.swp
 *.tmp
 *.o
+bundle/*
+.netrwhist
+.VimballRecord

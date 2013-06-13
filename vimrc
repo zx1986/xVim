@@ -28,7 +28,6 @@
     Bundle 'tpope/vim-haml'
     Bundle 'kchmck/vim-coffee-script'
     Bundle 'rodjek/vim-puppet'
-    Bundle 'bartekd/vim-dart'
     Bundle 'MarcWeber/vim-addon-mw-utils'
     Bundle 'tomtom/tlib_vim'
     Bundle 'garbas/vim-snipmate'

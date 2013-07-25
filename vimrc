@@ -50,6 +50,8 @@
     Bundle 'vim-scripts/peaksea'
     Bundle 'vim-scripts/taglist.vim'
     Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
+    Bundle 'rizzatti/funcoo.vim'
+    Bundle 'rizzatti/dash.vim'
     """ vim-scripts repos
     Bundle 'L9'
     Bundle 'FuzzyFinder'

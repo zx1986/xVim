@@ -31,7 +31,6 @@
     Bundle 'MarcWeber/vim-addon-mw-utils'
     Bundle 'tomtom/tlib_vim'
     Bundle 'garbas/vim-snipmate'
-    Bundle 'mattn/zencoding-vim'
     Bundle 'kien/ctrlp.vim'
     Bundle 'scrooloose/nerdtree'
     Bundle 'StanAngeloff/php.vim'
@@ -52,6 +51,8 @@
     Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
     Bundle 'rizzatti/funcoo.vim'
     Bundle 'rizzatti/dash.vim'
+    Bundle 'mattn/emmet-vim'
+    "Bundle 'mattn/zencoding-vim'
     """ vim-scripts repos
     Bundle 'L9'
     Bundle 'FuzzyFinder'
@@ -239,6 +240,8 @@ autocmd BufReadPost *
   \   exe "normal! g`\"" |
   \ endif
 endif
+
+"autocmd BufNewFile,BufRead *.scss set ft=css
 
 " for coffee-toaster
 "autocmd BufRead,BufNewFile *.coffee setlocal backupcopy=yes

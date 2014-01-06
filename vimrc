@@ -51,6 +51,7 @@
     Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
     Bundle 'rizzatti/funcoo.vim'
     Bundle 'rizzatti/dash.vim'
+    Bundle 'editorconfig/editorconfig-vim'
     Bundle 'mattn/emmet-vim'
     "Bundle 'mattn/zencoding-vim'
     """ vim-scripts repos

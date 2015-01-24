@@ -1,4 +1,4 @@
-" Vim:set foldmarker={{{,}}} foldlevel=0 spell
+" vim: set foldmarker={{{,}}} foldlevel=0 spell
 
 " Basics
 " {{{
@@ -17,7 +17,7 @@
     call vundle#rc()
     Bundle 'gmarik/vundle'
 
-    """ original repos on github
+    """ github repositories
     Bundle 'Lokaltog/vim-powerline'
     Bundle 'Lokaltog/vim-easymotion'
     Bundle 'hail2u/vim-css3-syntax'
@@ -41,7 +41,6 @@
     Bundle 'tobyS/vmustache'
     Bundle 'tobyS/pdv'
     Bundle 'StanAngeloff/php.vim'
-    Bundle 'vim-scripts/phpfolding.vim'
     Bundle 'vim-scripts/Align'
     Bundle 'vim-scripts/Jinja'
     Bundle 'vim-scripts/desert256.vim'
@@ -54,13 +53,12 @@
     Bundle 'rizzatti/dash.vim'
     Bundle 'editorconfig/editorconfig-vim'
     Bundle 'mattn/emmet-vim'
-    "Bundle 'mattn/zencoding-vim'
     Bundle 'benmills/vimux'
     Bundle 'ervandew/supertab'
-    """ vim-scripts repos
+    """ vim-scripts repositories
     Bundle 'L9'
     Bundle 'FuzzyFinder'
-    """ non github repos
+    """ non-github repositories
     "Bundle 'git://git.wincent.com/command-t.git'
 " }}}
 

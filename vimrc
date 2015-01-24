@@ -14,7 +14,7 @@
     filetype off
     set rtp+=$GOROOT/misc/vim
     set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc()    
+    call vundle#rc()
     Bundle 'gmarik/vundle'
 
     """ original repos on github
@@ -33,12 +33,14 @@
     Bundle 'garbas/vim-snipmate'
     Bundle 'kien/ctrlp.vim'
     Bundle 'scrooloose/nerdtree'
-    Bundle 'StanAngeloff/php.vim'
     Bundle 'xenoterracide/html.vim.git'
     Bundle 'altercation/vim-colors-solarized'
     Bundle 'wgibbs/vim-irblack'
     Bundle 'therubymug/vim-pyte'
     Bundle 'juvenn/mustache.vim'
+    Bundle 'tobyS/vmustache'
+    Bundle 'tobyS/pdv'
+    Bundle 'StanAngeloff/php.vim'
     Bundle 'vim-scripts/phpfolding.vim'
     Bundle 'vim-scripts/Align'
     Bundle 'vim-scripts/Jinja'
@@ -48,12 +50,13 @@
     Bundle 'vim-scripts/mayansmoke'
     Bundle 'vim-scripts/peaksea'
     Bundle 'vim-scripts/taglist.vim'
-    Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
     Bundle 'rizzatti/funcoo.vim'
     Bundle 'rizzatti/dash.vim'
     Bundle 'editorconfig/editorconfig-vim'
     Bundle 'mattn/emmet-vim'
     "Bundle 'mattn/zencoding-vim'
+    Bundle 'benmills/vimux'
+    Bundle 'ervandew/supertab'
     """ vim-scripts repos
     Bundle 'L9'
     Bundle 'FuzzyFinder'
@@ -101,7 +104,7 @@
     "colorscheme wombat256mod
 " }}}
 
-" Text Formatting 
+" Text Formatting
 " {{{
     set tabstop=4
     set shiftwidth=4                " auto-indent amount when using cindent, stuff like >> and <<
@@ -141,7 +144,7 @@
 "      highlight User3 term=underline cterm=underline ctermfg=yellow
 "      highlight User4 term=underline cterm=underline ctermfg=white
 "      highlight User5 ctermfg=cyan
-"      highlight User6 ctermfg=white 
+"      highlight User6 ctermfg=white
 "      highlight TabLineFill ctermbg=DarkGreen
 "      highlight TabLine ctermfg=DarkGray ctermbg=DarkGreen
 "      highlight TabLineSel ctermfg=Yellow ctermbg=DarkGreen
@@ -172,7 +175,7 @@
 
 " Javascript Folding
 " {{{
-    function! JavaScriptFold() 
+    function! JavaScriptFold()
         setl foldmethod=syntax
         setl foldlevelstart=1
         syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
@@ -202,11 +205,11 @@
 
     " PDV a.k.a. php-doc
     " {{{
-        inoremap <C-H> <ESC>:call PhpDocSingle()<CR>i 
-        nnoremap <C-H> :call PhpDocSingle()<CR> 
+        inoremap <C-H> <ESC>:call PhpDocSingle()<CR>i
+        nnoremap <C-H> :call PhpDocSingle()<CR>
         vnoremap <C-H> :call PhpDocRange()<CR>
     " }}}
-    
+
     " Powerline
     " {{{
         set t_Co=16

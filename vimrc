@@ -15,6 +15,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tomtom/tlib_vim'
 Plugin 'mattn/emmet-vim'
+" Plugin 'itchyny/lightline.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -42,9 +43,9 @@ set fileformat=unix
 set encoding=utf-8
 set fileencodings=utf-8
 set termencoding=utf-8
-set ambiwidth=double
 set history=500                 " keep 500 lines of command line history
 set tabpagemax=50               " for vim -p *
+" set ambiwidth=double
 
 " UI
 set t_Co=256

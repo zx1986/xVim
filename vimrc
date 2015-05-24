@@ -1,5 +1,6 @@
 " Basics
 set noexrc
+set hidden
 set nocompatible
 set background=dark
 set cpoptions=aABceFsmq
@@ -12,18 +13,18 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
+Plugin 'tomtom/tlib_vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'vim-scripts/winmanager'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'garbas/vim-snipmate'
 Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-sensible'
-Plugin 'garbas/vim-snipmate'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'L9'
 call vundle#end()
@@ -122,6 +123,7 @@ set statusline+=%4*%=\ %6*%y%4*\ %3*%l%4*,\ %3*%c%4*\ \<\ %2*%P%4*\ \>
 " let Powerline_symbols = 'compatible'
 " set guifont=Bitstream\ Vera\ Sans\ Mono\ for\ Powerline:h14
 " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+" set guifont=Source\ Code\ Powerline\ 14
 " if has('gui_running')
 "   set guifont=Monaco:h12    " set fonts for gui vim
 "   set transparency=5        " set transparent window
@@ -147,10 +149,17 @@ set statusline+=%4*%=\ %6*%y%4*\ %3*%l%4*,\ %3*%c%4*\ \<\ %2*%P%4*\ \>
 " let g:airline#extensions#tabline#buffer_nr_show = 1
 " let g:airline#extensions#tabline#left_sep = ' '
 " let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
-let g:airline_theme='badwolf'
+let g:airline_theme='durant'
+
+" Ctrl+P
+" Setup some default ignores
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
+  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg|git|bmp)$',
+\}
 
 " ===========================================================================
 

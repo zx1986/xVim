@@ -15,19 +15,24 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tomtom/tlib_vim'
 Plugin 'mattn/emmet-vim'
-" Plugin 'itchyny/lightline.vim'
-Plugin 'flazz/vim-colorschemes'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'garbas/vim-snipmate'
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'flazz/vim-colorschemes'
+" Plugin 'itchyny/lightline.vim'
 Plugin 'bling/vim-airline'
+Plugin 'garbas/vim-snipmate'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-rails'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'tomasr/molokai'
 Plugin 'L9'
 call vundle#end()
 filetype plugin on
@@ -45,12 +50,20 @@ set fileencodings=utf-8
 set termencoding=utf-8
 set history=500                 " keep 500 lines of command line history
 set tabpagemax=50               " for vim -p *
+set list
+set listchars=tab:▸\ ,eol:¬
+set wrap
+set formatoptions=qrn1
+set textwidth=80
+" set colorcolumn=85
 " set ambiwidth=double
 
 " UI
 set t_Co=256
 set number
 set numberwidth=5
+set ignorecase
+set smartcase
 set hlsearch                    " highlight search
 set incsearch                   " do incremental searching
 set ruler                       " show the cursor position all the time
@@ -70,16 +83,18 @@ set showmatch
 "colorscheme mayansmoke
 "colorscheme desert256
 "colorscheme wombat256mod
+"colorscheme solarized
+colorscheme molokai
 let g:solarized_termtrans = 1
 let g:solarized_termcolors = 256
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
-colorscheme solarized
+let g:molokai_original = 1
 
 " Auto Completetion
 set completeopt=longest,menu
 :inoremap ( ()<ESC>i
-:inoremap { {<CR>}<ESC>O
+:inoremap { {}<ESC>O
 :inoremap [ []<ESC>i
 
 " Text Formatting
@@ -148,9 +163,9 @@ set statusline+=%4*%=\ %6*%y%4*\ %3*%l%4*,\ %3*%c%4*\ \<\ %2*%P%4*\ \>
 " let g:airline_left_sep = '▶'
 " let g:airline_right_sep = '«'
 " let g:airline_right_sep = '◀'
-" let g:airline#extensions#tabline#buffer_nr_show = 1
-" let g:airline#extensions#tabline#left_sep = ' '
-" let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
@@ -185,4 +200,7 @@ autocmd BufReadPost *
   \ endif
 endif
 
+" autocmd vimenter * NERDTree
+" autocmd vimenter * Minimap
 autocmd BufRead,BufNewFile *.es6 setfiletype javascript
+autocmd FocusLost * :wa

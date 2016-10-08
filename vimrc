@@ -1,7 +1,7 @@
 " Basics
+set nocompatible
 set noexrc
 set hidden
-set nocompatible
 set background=dark
 set cpoptions=aABceFsmq
 syntax enable
@@ -15,13 +15,12 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tomtom/tlib_vim'
 Plugin 'mattn/emmet-vim'
+Plugin 'Shutnik/jshint2.vim'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'Chiel92/vim-autoformat'
-Plugin 'flazz/vim-colorschemes'
-" Plugin 'itchyny/lightline.vim'
-Plugin 'bling/vim-airline'
+Plugin 'tmux-plugins/vim-tmux'
+Plugin 'kchmck/vim-coffee-script'
 Plugin 'garbas/vim-snipmate'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
@@ -33,6 +32,10 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tomasr/molokai'
+Plugin 'morhetz/gruvbox'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'L9'
 call vundle#end()
 filetype plugin on
@@ -51,12 +54,14 @@ set termencoding=utf-8
 set history=500                 " keep 500 lines of command line history
 set tabpagemax=50               " for vim -p *
 set list
-set listchars=tab:▸\ ,eol:¬
+set listchars=eol:¬,tab:▸\ ,trail:~,extends:>,precedes:<,space:␣
 set wrap
 set formatoptions=qrn1
-set textwidth=80
-" set colorcolumn=85
-" set ambiwidth=double
+"set iskeyword-=_
+"set ambiwidth=double
+set textwidth=120
+set colorcolumn=+1
+"match ErrorMsg '\%>80v.\+'
 
 " UI
 set t_Co=256
@@ -70,31 +75,20 @@ set ruler                       " show the cursor position all the time
 set nostartofline               " leave the cursor where it was
 set showcmd                     " display incomplete commands
 set showmatch
-"set cursorline                 " 高亮度顯示當前所在列
+set cursorline                 " 高亮度顯示當前所在列
 "set cursorcolumn               " 高亮度顯示當前所在欄
 
 " Color Scheme
 "colorscheme default
-"colorscheme peaksea
-"colorscheme ir_black
-"colorscheme pyte
-"colorscheme moria
-"colorscheme torte
-"colorscheme mayansmoke
-"colorscheme desert256
-"colorscheme wombat256mod
+"colorscheme gruvbox
 "colorscheme solarized
 colorscheme molokai
-let g:solarized_termtrans = 1
-let g:solarized_termcolors = 256
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
-let g:molokai_original = 1
+let g:molokai_original=1
 
 " Auto Completetion
 set completeopt=longest,menu
 :inoremap ( ()<ESC>i
-:inoremap { {}<ESC>O
+:inoremap { {}<ESC>i
 :inoremap [ []<ESC>i
 
 " Text Formatting
@@ -109,7 +103,10 @@ let html_no_rendering=1
 
 " Folding
 set foldenable
-set foldmethod=syntax
+"set foldmethod=syntax
+set foldmethod=indent
+set foldlevelstart=10
+set foldnestmax=10
 
 " Mapping
 let mapleader=","
@@ -169,7 +166,8 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
-let g:airline_theme='durant'
+let g:airline_theme = 'durant'
+let g:airline_section_c = '%<%F%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
 
 " Ctrl+P
 " Setup some default ignores
@@ -200,7 +198,17 @@ autocmd BufReadPost *
   \ endif
 endif
 
-" autocmd vimenter * NERDTree
-" autocmd vimenter * Minimap
 autocmd BufRead,BufNewFile *.es6 setfiletype javascript
+autocmd BufWritePre *.php,*.py,*.js,*.css,*.scss,*.rb,*.sh,*.config,*.ini,*.yml,*.xml,*.html :%s/\s\+$//e
+" autocmd VimEnter * NERDTree
+" autocmd VimEnter * wincmd p
 autocmd FocusLost * :wa
+
+" allows cursor change in tmux mode
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif

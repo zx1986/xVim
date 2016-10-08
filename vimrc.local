@@ -1,0 +1,34 @@
+" colorscheme molokai
+" set listchars=eol:¬,tab:▸\ ,trail:~,extends:>,precedes:<,space:␣
+
+" Airline
+" let g:airline_symbols.linenr = '␊'
+" let g:airline_symbols.linenr = '␤'
+" let g:airline_symbols.linenr = '¶'
+" let g:airline_symbols.branch = '⎇'
+" let g:airline_symbols.paste = 'ρ'
+" let g:airline_symbols.paste = 'þ'
+" let g:airline_symbols.paste = '∥'
+" let g:airline_symbols.whitespace = 'ξ'
+" let g:airline_left_sep = '»'
+" let g:airline_right_sep = '«'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'durant'
+let g:airline_section_c = '%<%F%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
+
+" Setup some default ignores
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
+  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg|git|bmp)$',
+\}
+
+" allows cursor change in tmux mode
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif

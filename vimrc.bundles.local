@@ -1,2 +1,3 @@
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'tmux-plugins/vim-tmux'
+" Bundle 'Yggdroot/indentLine'

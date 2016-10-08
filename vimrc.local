@@ -1,4 +1,6 @@
 " colorscheme molokai
+" colorscheme ir_black
+" colorscheme peaksea
 " set listchars=eol:¬,tab:▸\ ,trail:~,extends:>,precedes:<,space:␣
 
 " Airline

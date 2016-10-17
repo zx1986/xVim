@@ -1,7 +1,9 @@
 " colorscheme molokai
 " colorscheme ir_black
 " colorscheme peaksea
+
 " set listchars=eol:¬,tab:▸\ ,trail:~,extends:>,precedes:<,space:␣
+set wrap linebreak nolist
 
 " Airline
 " let g:airline_symbols.linenr = '␊'

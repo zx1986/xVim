@@ -48,3 +48,4 @@ autocmd FileType eruby set nocursorcolumn
 autocmd FileType eruby syntax sync minlines=128
 autocmd FileType eruby set synmaxcol=128
 autocmd FileType eruby set re=1
+autocmd FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2

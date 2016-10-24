@@ -1,4 +1,4 @@
-Plugin 'Yggdroot/indentLine'
+" Plugin 'Yggdroot/indentLine'
 Plugin 'tpope/vim-sensible.git'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'tmux-plugins/vim-tmux'

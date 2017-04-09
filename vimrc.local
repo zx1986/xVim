@@ -1,10 +1,14 @@
+" syn cluster rubyNotTop add=LookOfDisapprovalLeftEye,LookOfDisapprovalRightEye,LookOfDisapprovalMouth,LookOfDisapprovalPadding
+
 " colorscheme molokai
 " colorscheme ir_black
 " colorscheme peaksea
 
-" set listchars=eol:¬,tab:▸\ ,trail:~,extends:>,precedes:<,space:␣
+set listchars=eol:¬,tab:▸\ ,trail:~,extends:>,precedes:<,space:␣
+set tabstop=2 shiftwidth=2 expandtab
 set wrap linebreak nolist
 set mouse-=a
+set iskeyword-=_
 
 " Airline
 " let g:airline_symbols.linenr = '␊'
@@ -59,6 +63,13 @@ endif
 
 " Fix vim slow with erb files
 autocmd FileType eruby set nocursorcolumn
-autocmd FileType eruby syntax sync minlines=128
+autocmd FileType eruby syntax sync minlines=256
 autocmd FileType eruby set synmaxcol=128
 autocmd FileType eruby set re=1
+autocmd FileType eruby set tabstop=2 shiftwidth=2 expandtab
+
+" http://standardjs.com/readme-zhtw.html
+" let g:syntastic_javascript_checkers = ['standard']
+
+" Puts the Ruby caller
+nnoremap <leader>wtf oputs "#" * 90<c-m>puts caller<c-m>puts "#" * 90<esc>

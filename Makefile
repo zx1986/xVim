@@ -5,4 +5,6 @@ init:
 	git submodule init
 	git submodule update
 	curl -sLf https://spacevim.org/install.sh | bash
-	mkdir -p ${HOME}/.SpaceVim.d/ && ln -sinF ${PWD}/vimrc ${HOME}/.SpaceVim.d/init.vim
+	mkdir -p ${HOME}/.SpaceVim.d/
+	ln -sinF ${PWD}/vimrc ${HOME}/.SpaceVim.d/init.vim
+	ln -sinF ${PWD}/spacevim ${HOME}/.spacevim

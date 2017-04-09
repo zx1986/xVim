@@ -5,3 +5,4 @@
 bundle/*
 .netrwhist
 .VimballRecord
+init.vim

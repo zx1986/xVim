@@ -1,8 +1,7 @@
 init:
 	brew install ctags
 	brew install neovim/neovim/neovim
+	alias vim="nvim"
 	git submodule init
 	git submodule update
-	ln -nsiF $(PWD)/ $(HOME)/.config/nvim
-	ln -nsiF $(PWD)/vimrc $(HOME)/.config/nvim/init.vim
-	alias vim='nvim'
+	curl -sLf https://spacevim.org/install.sh | bash

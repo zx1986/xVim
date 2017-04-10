@@ -1,6 +1,6 @@
 init:
-	brew install vim
 	brew install ctags
+	brew install vim --with-python3 --with-lua --with-tcl --with-toolbar --with-gettext --with-mzscheme
 	git submodule init
 	git submodule update
 	ln -nsiF $(PWD)/ $(HOME)/.vim

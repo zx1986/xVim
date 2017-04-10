@@ -1,0 +1,7 @@
+Plugin 'tpope/vim-sensible.git'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'tmux-plugins/vim-tmux'
+Plugin 'pearofducks/ansible-vim'
+Plugin 'editorconfig/editorconfig-vim'
+" Plugin 'Yggdroot/indentLine'
+" Plugin 'dodie/vim-disapprove-deep-indentation'

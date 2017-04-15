@@ -2,7 +2,11 @@
 *.swp
 *.tmp
 *.o
-bundle/*
+
 .netrwhist
 .VimballRecord
-init.vim
+
+autoload/
+bundle/
+plugged/
+session/

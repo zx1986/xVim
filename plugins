@@ -8,6 +8,7 @@ Plug 'tpope/vim-surround'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
 Plug 'altercation/vim-colors-solarized'
+Plug 'wakatime/vim-wakatime'
 
 " SnipMate
 Plug 'MarcWeber/vim-addon-mw-utils'

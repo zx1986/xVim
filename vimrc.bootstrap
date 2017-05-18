@@ -75,6 +75,9 @@ Plug 'tomasr/molokai'
 "" Custom bundles
 "*****************************************************************************
 
+set cursorline
+" set cursorcolumn
+
 " go
 "" Go Lang Bundle
 Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
@@ -610,6 +613,9 @@ let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
 
+" syntastic
+" let g:syntastic_ruby_checkers=['rubocop']
+
 augroup vimrc-ruby
   autocmd!
   autocmd BufNewFile,BufRead *.rb,*.rbw,*.gemspec setlocal filetype=ruby
@@ -693,3 +699,6 @@ else
   let g:airline_symbols.linenr = ''
 endif
 
+" use j and k choose complete
+inoremap <expr> j pumvisible() ? '<C-n>' : 'j'
+inoremap <expr> k pumvisible() ? '<C-p>' : 'k'

@@ -702,3 +702,5 @@ endif
 " use j and k choose complete
 inoremap <expr> j pumvisible() ? '<C-n>' : 'j'
 inoremap <expr> k pumvisible() ? '<C-p>' : 'k'
+
+inoremap jj <esc>

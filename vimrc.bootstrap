@@ -708,3 +708,6 @@ inoremap jj <esc>
 
 " Enable rufo (RUby FOrmat)
 let g:rufo_auto_formatting = 1
+
+" Ctags
+let g:rails_ctags_arguments = ['--languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)']

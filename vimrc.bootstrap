@@ -41,6 +41,7 @@ Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
+Plug 'ruby-formatter/rufo-vim'
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -704,3 +705,6 @@ inoremap <expr> j pumvisible() ? '<C-n>' : 'j'
 inoremap <expr> k pumvisible() ? '<C-p>' : 'k'
 
 inoremap jj <esc>
+
+" Enable rufo (RUby FOrmat)
+let g:rufo_auto_formatting = 1

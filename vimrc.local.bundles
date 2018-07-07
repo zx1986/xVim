@@ -13,6 +13,7 @@ Plug 'wakatime/vim-wakatime'
 Plug 'KurtPreston/vim-autoformat-rails'
 Plug 'ruby-formatter/rufo-vim'
 Plug 'vim-scripts/matchit.zip'
+Plug 'Valloric/YouCompleteMe'
 
 " SnipMate
 Plug 'MarcWeber/vim-addon-mw-utils'

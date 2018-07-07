@@ -11,6 +11,8 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'altercation/vim-colors-solarized'
 Plug 'wakatime/vim-wakatime'
 Plug 'KurtPreston/vim-autoformat-rails'
+Plug 'ruby-formatter/rufo-vim'
+Plug 'vim-scripts/matchit.zip'
 
 " SnipMate
 Plug 'MarcWeber/vim-addon-mw-utils'

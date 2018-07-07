@@ -700,15 +700,3 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
-
-" use j and k choose complete
-inoremap <expr> j pumvisible() ? '<C-n>' : 'j'
-inoremap <expr> k pumvisible() ? '<C-p>' : 'k'
-
-inoremap jj <esc>
-
-" Enable rufo (RUby FOrmat)
-let g:rufo_auto_formatting = 0
-
-" Ctags
-let g:rails_ctags_arguments = ['--languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)']

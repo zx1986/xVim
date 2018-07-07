@@ -1,0 +1,23 @@
+" use j and k choose complete
+inoremap <expr> j pumvisible() ? '<C-n>' : 'j'
+inoremap <expr> k pumvisible() ? '<C-p>' : 'k'
+
+inoremap jj <esc>
+
+noremap XX "+x
+noremap YY "+Y
+noremap <leader>p <CR>"+P
+
+" Enable rufo (RUby FOrmat)
+let g:rufo_auto_formatting = 0
+
+" Ctags
+let g:rails_ctags_arguments = ['--languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)']
+
+" https://stackoverflow.com/questions/225266/customising-word-separators-in-vi
+" set iskeyword-=_
+
+" https://neovim.io/doc/user/nvim.html#nvim-from-vim
+if !has('nvim')
+  set ttymouse=xterm2
+endif

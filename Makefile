@@ -1,5 +1,9 @@
 init:
 	brew install ctags neovim
+	pip2 install flake8 jedi
+	pip3 install flake8 jedi
+	pip2 install --user --upgrade neovim
+	pip3 install --user --upgrade neovim
 	git submodule init
 	git submodule update
 	ln -nsiF $(PWD)/ $(HOME)/.vim
@@ -11,3 +15,6 @@ init:
 clean:
 	rm -vf $(HOME)/.vim
 	rm -vf $(HOME)/.vimrc
+	rm -vf $(HOME)/.vimrc.local
+	rm -vf $(HOME)/.vimrc.local.bundles
+	rm -vf $(HOME)/.config/nvim

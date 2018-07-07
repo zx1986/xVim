@@ -8,14 +8,6 @@ set cursorline
 " 將輸入模式下的 jj 對應成 Esc
 inoremap jj <esc>
 
-" 將 Normal 模式下：
-" XX 對應成剪下到剪貼簿
-" YY 對應成複製到剪貼簿
-" ,p 對應成從剪貼簿貼上
-noremap XX "+x
-noremap YY "+Y
-noremap <leader>p <CR>"+P
-
 " Syntastic
 let g:syntastic_check_on_open = 0
 let g:syntastic_python_checkers=['python']

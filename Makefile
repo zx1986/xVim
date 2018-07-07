@@ -1,12 +1,20 @@
 init:
-	brew install ctags
-	brew install vim --with-python3 --with-lua --with-tcl --with-gettext
+	brew install ctags neovim
+	pip2 install flake8 jedi
+	pip3 install flake8 jedi
+	pip2 install --user --upgrade neovim
+	pip3 install --user --upgrade neovim
 	git submodule init
 	git submodule update
 	ln -nsiF $(PWD)/ $(HOME)/.vim
+	ln -nsiF $(PWD)/vimrc.local $(HOME)/.vimrc.local
+	ln -nsiF $(PWD)/vimrc.local.bundles $(HOME)/.vimrc.local.bundles
 	ln -nsiF $(PWD)/vimrc.bootstrap $(HOME)/.vimrc
-	ln -nsiF $(PWD)/plugins $(HOME)/.vimrc.local.bundles
+	ln -nsiF $(PWD)/nvim ~/.config/nvim
 
 clean:
 	rm -vf $(HOME)/.vim
 	rm -vf $(HOME)/.vimrc
+	rm -vf $(HOME)/.vimrc.local
+	rm -vf $(HOME)/.vimrc.local.bundles
+	rm -vf $(HOME)/.config/nvim

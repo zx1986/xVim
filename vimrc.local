@@ -10,10 +10,15 @@ inoremap jj <esc>
 
 " Syntastic
 let g:syntastic_check_on_open = 0
-let g:syntastic_python_checkers=['python']
 
-" rufo (RUby FOrmat)
+" Ruby
 let g:rufo_auto_formatting = 0
+
+" Python
+autocmd FileType python setlocal colorcolumn=119
+"let g:syntastic_python_checkers=['python']
+"let g:syntastic_python_flake8_post_args='--ignore=E501,E128,E225,F821'
+let g:syntastic_python_flake8_post_args='--ignore=F821'
 
 " 設定自動產生 Ctags
 let g:rails_ctags_arguments = ['--languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)']

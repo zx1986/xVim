@@ -8,19 +8,10 @@ set cursorline
 " 將輸入模式下的 jj 對應成 Esc
 inoremap jj <esc>
 
-" Syntastic
+" Syntastic 語法檢查
 let g:syntastic_check_on_open = 0
 
-" Ruby
-let g:rufo_auto_formatting = 0
-
-" Python
-autocmd FileType python setlocal colorcolumn=119
-"let g:syntastic_python_checkers=['python']
-"let g:syntastic_python_flake8_post_args='--ignore=E501,E128,E225,F821'
-let g:syntastic_python_flake8_post_args='--ignore=F821'
-
-" 設定自動產生 Ctags
+" Ctags 函式檢索
 let g:rails_ctags_arguments = ['--languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)']
 
 " 調整 vim 裡面切割 word 單元的分隔字符
@@ -37,3 +28,12 @@ let g:rails_ctags_arguments = ['--languages=ruby --exclude=.git --exclude=log . 
 if !has('nvim')
   set ttymouse=xterm2
 endif
+
+""" Programming Languages
+
+" Ruby
+let g:rufo_auto_formatting = 0
+
+" Python
+autocmd FileType python setlocal colorcolumn=119
+let g:syntastic_python_flake8_post_args='--ignore=F821'

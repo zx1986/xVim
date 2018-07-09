@@ -19,15 +19,20 @@ let g:rails_ctags_arguments = ['--languages=ruby --exclude=.git --exclude=log . 
 " set iskeyword-=_
 
 " Airline
-"let g:airline#extensions#tabline#buffer_idx_mode = 0
-"let g:airline#extensions#tabline#buffer_nr_show = 1
-"let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 0
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_powerline_fonts = 1
 
 " Neovim 相關配置
 " https://neovim.io/doc/user/nvim.html#nvim-from-vim
 if !has('nvim')
   set ttymouse=xterm2
 endif
+
+" Snippets
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 """ Programming Languages
 

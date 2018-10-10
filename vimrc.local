@@ -19,7 +19,7 @@ let g:rails_ctags_arguments = ['--languages=ruby --exclude=.git --exclude=log . 
 
 " 調整 vim 裡面切割 word 單元的分隔字符
 " https://stackoverflow.com/questions/225266/customising-word-separators-in-vi
-" set iskeyword-=_
+set iskeyword-=_
 
 " Airline
 let g:airline#extensions#tabline#buffer_idx_mode = 0

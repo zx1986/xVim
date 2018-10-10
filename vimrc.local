@@ -1,3 +1,6 @@
+" https://github.com/avelino/vim-bootstrap/issues/300
+set clipboard=
+
 " 顯示最近執行的 cmd
 set showcmd
 

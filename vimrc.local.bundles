@@ -1,3 +1,4 @@
+Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-sensible'
 Plug 'junegunn/vim-easy-align'
 Plug 'tmux-plugins/vim-tmux'
@@ -16,6 +17,7 @@ Plug 'vim-scripts/matchit.zip'
 Plug 'Valloric/YouCompleteMe'
 Plug 'tweekmonster/django-plus.vim'
 Plug 'vim-scripts/django.vim'
+Plug 'ryanoasis/vim-devicons'
 
 " SnipMate
 Plug 'MarcWeber/vim-addon-mw-utils'

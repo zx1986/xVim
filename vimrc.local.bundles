@@ -17,7 +17,6 @@ Plug 'vim-scripts/matchit.zip'
 Plug 'Valloric/YouCompleteMe'
 Plug 'tweekmonster/django-plus.vim'
 Plug 'vim-scripts/django.vim'
-Plug 'ryanoasis/vim-devicons'
 
 " SnipMate
 Plug 'MarcWeber/vim-addon-mw-utils'

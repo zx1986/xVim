@@ -44,4 +44,4 @@ let g:rufo_auto_formatting = 0
 
 " Python
 autocmd FileType python setlocal colorcolumn=119
-let g:syntastic_python_flake8_post_args='--ignore=F821,E302,E501,F403,F405'
+let g:syntastic_python_flake8_post_args='--ignore=F821,E302,E501,F403,F405,E731'

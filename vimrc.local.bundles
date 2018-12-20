@@ -21,3 +21,5 @@ Plug 'vim-scripts/django.vim'
 " SnipMate
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
+
+Plug 'ryanoasis/vim-devicons'

@@ -14,9 +14,14 @@ Plug 'wakatime/vim-wakatime'
 Plug 'KurtPreston/vim-autoformat-rails'
 Plug 'ruby-formatter/rufo-vim'
 Plug 'vim-scripts/matchit.zip'
-Plug 'Valloric/YouCompleteMe'
 Plug 'tweekmonster/django-plus.vim'
 Plug 'vim-scripts/django.vim'
+
+" Auto Completion
+" Plug 'Valloric/YouCompleteMe'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+" :call coc#util#install()
+" :CocInstall coc-json coc-html coc-css coc-vetur coc-yaml coc-pyls coc-highlight coc-emmet coc-tsserver coc-solargraph
 
 " SnipMate
 Plug 'MarcWeber/vim-addon-mw-utils'

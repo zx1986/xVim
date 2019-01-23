@@ -11,6 +11,10 @@ set cursorline
 " 將輸入模式下的 jj 對應成 Esc
 inoremap jj <esc>
 
+" https://stackoverflow.com/questions/10746750/set-vim-bracket-highlighting-colors
+hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
+hi MatchParen guibg=NONE guifg=blue gui=bold
+
 " Syntastic 語法檢查
 let g:syntastic_check_on_open = 0
 

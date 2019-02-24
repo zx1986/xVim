@@ -13,7 +13,7 @@ inoremap jj <esc>
 
 " https://stackoverflow.com/questions/10746750/set-vim-bracket-highlighting-colors
 hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
-hi MatchParen guibg=NONE guifg=blue gui=bold
+hi MatchParen guibg=none ctermbg=none guifg=blue gui=bold
 
 " Syntastic 語法檢查
 let g:syntastic_check_on_open = 0

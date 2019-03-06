@@ -15,6 +15,11 @@ inoremap jj <esc>
 hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
 hi MatchParen guibg=none ctermbg=none guifg=blue gui=bold
 
+" 配適 The Silver Searcher 搭配 fzf
+if executable('ag')
+  let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -U -g ""'
+endif
+
 " Syntastic 語法檢查
 let g:syntastic_check_on_open = 0
 

@@ -30,14 +30,6 @@ let g:rails_ctags_arguments = ['--languages=ruby --exclude=.git --exclude=log . 
 " https://stackoverflow.com/questions/225266/customising-word-separators-in-vi
 "set iskeyword-=_
 
-" Makefile 檔案不進行 tab expand
-" https://vi.stackexchange.com/questions/704/insert-tabs-in-insert-mode-when-expandtab-is-set
-if has("autocmd")
-  " If the filetype is Makefile then we need to use tabs
-  " So do not expand tabs into space.
-  autocmd FileType make set noexpandtab
-endif
-
 " Nord Theme
 set termguicolors
 let g:nord_italic = 1

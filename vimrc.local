@@ -30,6 +30,10 @@ let g:rails_ctags_arguments = ['--languages=ruby --exclude=.git --exclude=log . 
 " https://stackoverflow.com/questions/225266/customising-word-separators-in-vi
 "set iskeyword-=_
 
+" 將 spaces 跟 tab 以及換行顯示出來
+set list
+set listchars=tab:›\ ,eol:¬,trail:⋅
+
 " Nord Theme
 set termguicolors
 let g:nord_italic = 1

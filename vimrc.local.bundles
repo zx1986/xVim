@@ -16,6 +16,7 @@ Plug 'ruby-formatter/rufo-vim'
 Plug 'vim-scripts/matchit.zip'
 Plug 'tweekmonster/django-plus.vim'
 Plug 'vim-scripts/django.vim'
+Plug 'arcticicestudio/nord-vim'
 
 """ Auto Completion
 

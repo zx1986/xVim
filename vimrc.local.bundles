@@ -17,6 +17,9 @@ Plug 'vim-scripts/matchit.zip'
 Plug 'tweekmonster/django-plus.vim'
 Plug 'vim-scripts/django.vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'hashivim/vim-terraform'
+Plug 'hashivim/vim-packer'
+
 
 """ Auto Completion
 

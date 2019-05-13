@@ -19,7 +19,6 @@ Plug 'vim-scripts/django.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'hashivim/vim-packer'
-Plug 'juliosueiras/vim-terraform-completion'
 Plug 'dbeniamine/cheat.sh-vim'
 
 """ Auto Completion

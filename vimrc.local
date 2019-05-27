@@ -22,6 +22,11 @@ endif
 
 " Syntastic 語法檢查
 let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_highlighting = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_quiet_messages = { "type": "style" }
 
 " Ctags 函式檢索
 let g:rails_ctags_arguments = ['--languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)']
@@ -169,6 +174,9 @@ let g:rufo_auto_formatting = 0
 " Python
 autocmd FileType python setlocal colorcolumn=119
 let g:syntastic_python_flake8_post_args='--ignore=F821,E302,E501,F403,F405,E731'
+
+" Ansible
+let g:syntastic_ignore_files = ['\m^roles/']
 
 " Terraform
 let g:terraform_align=1

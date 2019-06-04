@@ -177,6 +177,10 @@ let g:syntastic_python_flake8_post_args='--ignore=F821,E302,E501,F403,F405,E731'
 
 " Ansible
 let g:syntastic_ignore_files = ['\m^roles/']
+augroup ansible_vim_fthosts
+  autocmd!
+  autocmd BufNewFile,BufRead */playbooks/*.yml,*/roles/*.yml setlocal filetype=yaml.ansible
+augroup END
 
 " Terraform
 let g:terraform_align=1

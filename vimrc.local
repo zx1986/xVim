@@ -40,10 +40,10 @@ set list
 set listchars=tab:›\ ,eol:¬,trail:⋅
 
 " Nord Theme
-set termguicolors
-let g:nord_italic = 1
-let g:nord_underline = 1
-colorscheme nord
+"set termguicolors
+"let g:nord_italic = 1
+"let g:nord_underline = 1
+"colorscheme nord
 
 " Airline
 let g:airline#extensions#tabline#buffer_idx_mode = 0
@@ -187,3 +187,8 @@ let g:terraform_align=1
 let g:terraform_fold_sections=1
 let g:terraform_remap_spacebar=1
 let g:terraform_fmt_on_save=1
+
+colorscheme molokai
+hi Normal ctermbg=none
+hi NonText ctermbg=none
+hi LineNr ctermbg=none

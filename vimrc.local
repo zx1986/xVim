@@ -187,9 +187,6 @@ let g:terraform_fmt_on_save=1
 " Molokai
 "let g:molokai_original = 1
 "let g:rehash256 = 1
-"hi Normal ctermbg=none
-"hi NonText ctermbg=none
-"hi LineNr ctermbg=none
 "colorscheme molokai
 
 " Nord Theme
@@ -200,3 +197,7 @@ let g:terraform_fmt_on_save=1
 
 " Dracula Theme
 colorscheme dracula
+
+hi Normal ctermbg=none
+"hi LineNr ctermbg=none
+"hi NonText ctermbg=none

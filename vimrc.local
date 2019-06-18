@@ -39,12 +39,6 @@ let g:rails_ctags_arguments = ['--languages=ruby --exclude=.git --exclude=log . 
 set list
 set listchars=tab:›\ ,eol:¬,trail:⋅
 
-" Nord Theme
-"set termguicolors
-"let g:nord_italic = 1
-"let g:nord_underline = 1
-"colorscheme nord
-
 " Airline
 let g:airline#extensions#tabline#buffer_idx_mode = 0
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -188,11 +182,21 @@ let g:terraform_fold_sections=1
 let g:terraform_remap_spacebar=1
 let g:terraform_fmt_on_save=1
 
-"colorscheme molokai
+""" Themes
+
+" Molokai
 "let g:molokai_original = 1
 "let g:rehash256 = 1
 "hi Normal ctermbg=none
 "hi NonText ctermbg=none
 "hi LineNr ctermbg=none
+"colorscheme molokai
 
-color dracula
+" Nord Theme
+"set termguicolors
+"let g:nord_italic = 1
+"let g:nord_underline = 1
+"colorscheme nord
+
+" Dracula Theme
+colorscheme dracula

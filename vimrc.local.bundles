@@ -20,6 +20,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'hashivim/vim-packer'
 Plug 'dbeniamine/cheat.sh-vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'andrewstuart/vim-kubernetes'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 """ Auto Completion

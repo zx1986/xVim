@@ -176,6 +176,10 @@ augroup ansible_vim_fthosts
   autocmd BufNewFile,BufRead */playbooks/*.yml,*/roles/*.yml setlocal filetype=yaml.ansible
 augroup END
 
+if exists('&regexpengine')
+  set regexpengine=1
+endif
+
 " Terraform
 let g:terraform_align=1
 let g:terraform_fold_sections=1

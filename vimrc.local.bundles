@@ -19,8 +19,8 @@ Plug 'vim-scripts/django.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'hashivim/vim-packer'
 Plug 'dbeniamine/cheat.sh-vim'
-Plug 'arcticicestudio/nord-vim'
 Plug 'andrewstuart/vim-kubernetes'
+Plug 'zxqfl/tabnine-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 """ Auto Completion

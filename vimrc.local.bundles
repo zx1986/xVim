@@ -20,15 +20,14 @@ Plug 'hashivim/vim-terraform'
 Plug 'hashivim/vim-packer'
 Plug 'dbeniamine/cheat.sh-vim'
 Plug 'andrewstuart/vim-kubernetes'
-Plug 'zxqfl/tabnine-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 """ Auto Completion
 
 " Plug 'Valloric/YouCompleteMe'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-" :call coc#util#install()
-" :CocInstall coc-json coc-html coc-css coc-vetur coc-yaml coc-pyls coc-highlight coc-emmet coc-tsserver coc-solargraph
+":call coc#util#install()
+":CocInstall coc-json coc-html coc-css coc-vetur coc-yaml coc-pyls coc-highlight coc-emmet coc-tsserver coc-solargraph coc-tabnine
 
 """ SnipMate
 

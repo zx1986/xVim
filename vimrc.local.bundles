@@ -25,9 +25,9 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 """ Auto Completion
 
 " Plug 'Valloric/YouCompleteMe'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 ":call coc#util#install()
-":CocInstall coc-json coc-html coc-css coc-vetur coc-yaml coc-pyls coc-highlight coc-emmet coc-tsserver coc-solargraph coc-tabnine
+":CocInstall coc-json coc-html coc-css coc-vetur coc-yaml coc-pyls coc-highlight coc-emmet coc-tsserver coc-solargraph coc-tabnine coc-lists coc-pairs coc-snippets coc-yank coc-python coc-phpls
 
 """ SnipMate
 

@@ -28,6 +28,8 @@ setup:
 		coc-lists \
 		coc-pairs \
 		coc-snippets \
+		coc-ultisnips \
+		coc-neosnippet \
 		coc-tabnine \
 		coc-json \
 		coc-html \

@@ -162,6 +162,9 @@ nnoremap <silent> <space>l  :<C-u>Denite coc-link<cr>
 
 """ Programming Languages
 
+" JSON
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
 " Ruby
 let g:rufo_auto_formatting = 0
 

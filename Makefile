@@ -1,6 +1,8 @@
 init:
 	brew install ctags neovim
-	pip3 install flake8 jedi
+	gem install neovim
+	npm install neovim
+	pip3 install flake8 pynvim
 	pip3 install --user --upgrade neovim
 	git submodule init
 	git submodule update

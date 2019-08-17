@@ -1,6 +1,6 @@
 init:
 	brew install ctags neovim
-	gem install neovim
+	gem install neovim solargraph
 	npm install -g neovim
 	pip install flake8 pynvim
 	pip install --user --upgrade neovim
@@ -14,6 +14,28 @@ init:
 	ln -nsiF $(PWD)/vimrc.local.bundles $(HOME)/.vimrc.local.bundles
 	ln -nsiF $(PWD)/vimrc.bootstrap $(HOME)/.vimrc
 	ln -nsiF $(PWD)/nvim ~/.config/nvim
+
+setup:
+	vim -c 'PlugInstall'
+	vim -c 'PlugClean'
+	vim -c 'CocInstall \
+		coc-imselect \
+		coc-solargraph \
+		coc-highlight \
+		coc-tsserver \
+		coc-yank \
+		coc-emmet \
+		coc-lists \
+		coc-pairs \
+		coc-snippets \
+		coc-tabnine \
+		coc-json \
+		coc-html \
+		coc-yaml \
+		coc-css \
+		coc-vetur \
+		coc-python \
+		coc-phpls'
 
 clean:
 	rm -vf $(HOME)/.vim

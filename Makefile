@@ -37,6 +37,7 @@ setup:
 		coc-css \
 		coc-vetur \
 		coc-python \
+		coc-gocode \
 		coc-phpls'
 
 clean:

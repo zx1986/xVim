@@ -162,6 +162,9 @@ nnoremap <silent> <space>l  :<C-u>Denite coc-link<cr>
 
 """ Programming Languages
 
+" Markdown
+autocmd FileType markdown setlocal spell
+
 " JSON
 autocmd FileType json syntax match Comment +\/\/.\+$+
 

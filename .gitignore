@@ -9,4 +9,4 @@
 autoload/
 bundle/
 plugged/
-session/
+sessions/

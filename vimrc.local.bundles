@@ -21,6 +21,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'hashivim/vim-packer'
 Plug 'dbeniamine/cheat.sh-vim'
 Plug 'andrewstuart/vim-kubernetes'
+Plug 'morhetz/gruvbox'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 """ Auto Completion

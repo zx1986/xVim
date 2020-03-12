@@ -206,7 +206,10 @@ let g:terraform_fmt_on_save=1
 "colorscheme nord
 
 " Dracula Theme
-colorscheme dracula
+"colorscheme dracula
+
+" Gruvbox Theme
+colorscheme gruvbox
 
 hi Normal ctermbg=none
 "hi LineNr ctermbg=none

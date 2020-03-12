@@ -1,11 +1,6 @@
-init:
+.PHONY: init
+init: ## 初始化安裝配置 neovim
 	brew install ctags neovim
-	gem install neovim solargraph
-	npm install -g neovim
-	pip install flake8 pynvim
-	pip install --user --upgrade neovim
-	pip3 install flake8 pynvim
-	pip3 install --user --upgrade neovim
 	git submodule init
 	git submodule update
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -15,7 +10,23 @@ init:
 	ln -nsiF $(PWD)/vimrc.bootstrap $(HOME)/.vimrc
 	ln -nsiF $(PWD)/nvim ~/.config/nvim
 
-setup:
+.PHONY: ruby
+ruby: ## 配置搭配的 Ruby 環境
+	gem install neovim solargraph
+
+.PHONY: node
+node: ## 配置搭配的 NodeJS 環境
+	npm install -g neovim
+
+.PHONY: python
+python: ## 配置搭配的 python 環境
+	pip install flake8 pynvim
+	pip install --user --upgrade neovim
+	pip3 install flake8 pynvim
+	pip3 install --user --upgrade neovim
+
+.PHONY: plugins
+plugins: ## 安裝 vim 外掛
 	vim -c 'PlugInstall'
 	vim -c 'PlugClean'
 	vim -c 'CocInstall \
@@ -40,9 +51,17 @@ setup:
 		coc-gocode \
 		coc-phpls'
 
-clean:
+.PHONY: delete
+delete: ## 移除現有配置
 	rm -vf $(HOME)/.vim
 	rm -vf $(HOME)/.vimrc
 	rm -vf $(HOME)/.vimrc.local
 	rm -vf $(HOME)/.vimrc.local.bundles
 	rm -vf $(HOME)/.config/nvim
+
+# Absolutely awesome: http://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
+.PHONY: help
+help:
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+
+.DEFAULT_GOAL := help

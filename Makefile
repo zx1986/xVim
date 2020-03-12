@@ -9,10 +9,11 @@ init: ## 初始化安裝配置 neovim
 	ln -nsiF $(PWD)/vimrc.local.bundles $(HOME)/.vimrc.local.bundles
 	ln -nsiF $(PWD)/vimrc.bootstrap $(HOME)/.vimrc
 	ln -nsiF $(PWD)/nvim ~/.config/nvim
+	$(MAKE) plugins
 
 .PHONY: ruby
 ruby: ## 配置搭配的 Ruby 環境
-	gem install neovim solargraph
+	`rbenv which gem` install neovim solargraph
 
 .PHONY: node
 node: ## 配置搭配的 NodeJS 環境
@@ -20,10 +21,8 @@ node: ## 配置搭配的 NodeJS 環境
 
 .PHONY: python
 python: ## 配置搭配的 python 環境
-	pip install flake8 pynvim
-	pip install --user --upgrade neovim
-	pip3 install flake8 pynvim
-	pip3 install --user --upgrade neovim
+	python3 -m pip uninstall neovim pynvim
+	python3 -m pip install --user --upgrade pynvim flake8
 
 .PHONY: plugins
 plugins: ## 安裝 vim 外掛

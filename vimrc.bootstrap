@@ -615,7 +615,6 @@ map <Leader>a :call RunAllSpecs()<CR>
 " For ruby refactory
 if has('nvim')
   runtime! macros/matchit.vim
-  let g:ruby_host_prog = '~/.rbenv/versions/2.7.0/bin/neovim-ruby-host'
 else
   packadd! matchit
 endif

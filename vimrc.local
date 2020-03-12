@@ -170,10 +170,13 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " Ruby
 let g:rufo_auto_formatting = 0
+let g:ruby_host_prog = '~/.rbenv/versions/2.7.0/bin/neovim-ruby-host'
 
 " Python
 autocmd FileType python setlocal colorcolumn=119
 let g:syntastic_python_flake8_post_args='--ignore=F821,E302,E501,F403,F405,E731'
+let g:loaded_python_provider = 0
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 " Ansible
 let g:syntastic_ignore_files = ['\m^roles/']

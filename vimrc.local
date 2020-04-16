@@ -180,9 +180,10 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 
 " Ansible
 let g:syntastic_ignore_files = ['\m^roles/']
+"au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
 augroup ansible_vim_fthosts
   autocmd!
-  autocmd BufNewFile,BufRead */playbooks/*.yml,*/roles/*.yml setlocal filetype=yaml.ansible
+  autocmd BufNewFile,BufRead hosts setfiletype yaml.ansible
 augroup END
 
 if exists('&regexpengine')

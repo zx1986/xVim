@@ -170,7 +170,7 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " Ruby
 let g:rufo_auto_formatting = 0
-let g:ruby_host_prog = '~/.rbenv/versions/2.7.0/bin/neovim-ruby-host'
+let g:ruby_host_prog = '~/.asdf/shims/neovim-ruby-host'
 
 " Python
 autocmd FileType python setlocal colorcolumn=119

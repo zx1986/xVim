@@ -13,7 +13,7 @@ init: ## 初始化安裝配置 neovim
 
 .PHONY: ruby
 ruby: ## 配置搭配的 Ruby 環境
-	`rbenv which gem` install neovim solargraph
+	gem install neovim solargraph
 
 .PHONY: node
 node: ## 配置搭配的 NodeJS 環境

@@ -23,6 +23,7 @@ Plug 'dbeniamine/cheat.sh-vim'
 Plug 'andrewstuart/vim-kubernetes'
 Plug 'morhetz/gruvbox'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 """ Auto Completion
 

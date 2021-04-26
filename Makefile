@@ -52,11 +52,11 @@ plugins: ## 安裝 vim 外掛
 
 .PHONY: delete
 delete: ## 移除現有配置
-	rm -vf $(HOME)/.vim
+	rm -rf $(HOME)/.vim
 	rm -vf $(HOME)/.vimrc
 	rm -vf $(HOME)/.vimrc.local
 	rm -vf $(HOME)/.vimrc.local.bundles
-	rm -vf $(HOME)/.config/nvim
+	rm -rf $(HOME)/.config/nvim
 
 # Absolutely awesome: http://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 .PHONY: help

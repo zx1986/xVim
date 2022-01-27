@@ -1,15 +1,10 @@
 .PHONY: init
 init: ## 初始化安裝配置 neovim
 	brew install ctags neovim
-	git submodule init
-	git submodule update
-	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	ln -nsiF $(PWD)/ $(HOME)/.vim
-	ln -nsiF $(PWD)/vimrc.local $(HOME)/.vimrc.local
-	ln -nsiF $(PWD)/vimrc.local.bundles $(HOME)/.vimrc.local.bundles
-	ln -nsiF $(PWD)/vimrc.bootstrap $(HOME)/.vimrc
-	ln -nsiF $(PWD)/nvim ~/.config/nvim
-	$(MAKE) plugins
+	mkdir -p $(HOME)/.config/nvim
+	ln -nsiF $(PWD)/vimrc.bootstrap $(HOME)/.config/nvim/init.vim
+	ln -nsiF $(PWD)/vimrc.local $(HOME)/.config/nvim/local_init.vim
+	ln -nsiF $(PWD)/vimrc.local.bundles $(HOME)/local_bundles.vim
 
 .PHONY: ruby
 ruby: ## 配置搭配的 Ruby 環境

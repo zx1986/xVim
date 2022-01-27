@@ -1,4 +1,4 @@
-" vim-bootstrap 2022-01-27 10:37:36
+" vim-bootstrap 2022-01-27 15:04:48
 
 "*****************************************************************************
 "" Vim-Plug core
@@ -12,8 +12,8 @@ endif
 
 let g:vim_bootstrap_langs = "go,html,javascript,php,python,ruby"
 let g:vim_bootstrap_editor = "nvim"				" nvim or vim
-let g:vim_bootstrap_theme = "molokai"
-let g:vim_bootstrap_frams = "svelte"
+let g:vim_bootstrap_theme = "gruvbox"
+let g:vim_bootstrap_frams = "vuejs"
 
 if !filereadable(vimplug_exists)
   if !executable(curl_exists)
@@ -49,8 +49,7 @@ Plug 'dense-analysis/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'editor-bootstrap/vim-bootstrap-updater'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
-Plug 'tomasr/molokai'
-
+Plug 'morhetz/gruvbox'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -114,8 +113,10 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'ecomba/vim-ruby-refactoring', {'tag': 'main'}
 
 
-" svelte
-Plug 'leafOfTree/vim-svelte-plugin'
+" vuejs
+Plug 'posva/vim-vue'
+Plug 'leafOfTree/vim-vue-plugin'
+
 
 
 "*****************************************************************************
@@ -184,10 +185,9 @@ set ruler
 set number
 
 let no_buffers_menu=1
-colorscheme molokai
+colorscheme gruvbox
 
-
-" Better command line completion 
+" Better command line completion
 set wildmenu
 
 " mouse support
@@ -212,7 +212,7 @@ else
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
 
-  
+
 endif
 
 
@@ -656,8 +656,11 @@ vnoremap <leader>rem  :RExtractMethod<cr>
 
 
 
-" svelte
-let g:vim_svelte_plugin_load_full_syntax = 1
+" vuejs
+" vim vue
+let g:vue_disable_pre_processors=1
+" vim vue plugin
+let g:vim_vue_plugin_load_full_syntax = 1
 
 
 "*****************************************************************************

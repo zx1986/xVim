@@ -89,22 +89,11 @@ let g:terraform_fmt_on_save=1
 
 """ Themes
 
-" Molokai
-"let g:molokai_original = 1
-"let g:rehash256 = 1
-"colorscheme molokai
-
 " Nord Theme
 "set termguicolors
 "let g:nord_italic = 1
 "let g:nord_underline = 1
 "colorscheme nord
-
-" Dracula Theme
-"colorscheme dracula
-
-" Gruvbox Theme
-colorscheme gruvbox
 
 hi Normal ctermbg=none
 "hi LineNr ctermbg=none

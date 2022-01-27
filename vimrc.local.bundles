@@ -15,27 +15,12 @@ Plug 'morhetz/gruvbox'
 Plug 'pearofducks/ansible-vim'
 Plug 'ruby-formatter/rufo-vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'sjl/gundo.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tmux-plugins/vim-tmux'
-Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tweekmonster/django-plus.vim'
 Plug 'vim-scripts/django.vim'
 Plug 'vim-scripts/matchit.zip'
 Plug 'wakatime/vim-wakatime'
 Plug 'rlue/vim-barbaric'
-
-""" Auto Completion
-
-" Plug 'Valloric/YouCompleteMe'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-""" SnipMate
-
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-
-""" Devicons
-
 Plug 'ryanoasis/vim-devicons'

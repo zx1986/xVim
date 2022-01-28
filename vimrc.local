@@ -1,19 +1,5 @@
-" https://github.com/avelino/vim-bootstrap/issues/300
-set clipboard=
-
-" 顯示最近執行的 cmd
-set showcmd
-
-" 標識 cursor 行列
-set cursorline
-"set cursorcolumn
-
 " 將輸入模式下的 jj 對應成 Esc
 inoremap jj <esc>
-
-" https://stackoverflow.com/questions/10746750/set-vim-bracket-highlighting-colors
-hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
-hi MatchParen guibg=none ctermbg=none guifg=blue gui=bold
 
 " Ctags 函式檢索
 let g:rails_ctags_arguments = ['--languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)']
@@ -22,48 +8,7 @@ let g:rails_ctags_arguments = ['--languages=ruby --exclude=.git --exclude=log . 
 " https://stackoverflow.com/questions/225266/customising-word-separators-in-vi
 "set iskeyword-=_
 
-" 將 spaces 跟 tab 以及換行顯示出來
-set list
-set listchars=tab:›\ ,eol:¬,trail:⋅
-
-" Airline
-let g:airline#extensions#tabline#buffer_idx_mode = 0
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_powerline_fonts = 1
-
-" Neovim 相關配置
-" https://neovim.io/doc/user/nvim.html#nvim-from-vim
-if !has('nvim')
-  set ttymouse=xterm2
-endif
-
-""" Snippets
-
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-
-""" Auto Completion
-
-" if hidden not set, TextEdit might fail.
-set hidden
-
-" Better display for messages
-set cmdheight=2
-
-" Smaller updatetime for CursorHold & CursorHoldI
-set updatetime=300
-
-" always show signcolumns
-set signcolumn=yes
-
 """ Programming Languages
-
-" Markdown
-autocmd FileType markdown setlocal spell
-
-" JSON
-autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " Ruby
 let g:rufo_auto_formatting = 0
@@ -76,10 +21,6 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 
 " Ansible
 "au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
-
-if exists('&regexpengine')
-  set regexpengine=1
-endif
 
 " Terraform
 let g:terraform_align=1

@@ -8,6 +8,9 @@ let g:rails_ctags_arguments = ['--languages=ruby --exclude=.git --exclude=log . 
 " https://stackoverflow.com/questions/225266/customising-word-separators-in-vi
 "set iskeyword-=_
 
+" FZF
+nnoremap <c-P> <cmd>lua require('fzf-lua').files()<CR>
+
 """ Programming Languages
 
 " Ruby

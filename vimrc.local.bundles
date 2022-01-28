@@ -9,7 +9,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-packer'
 Plug 'hashivim/vim-terraform'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/vim-easy-align'
 Plug 'pearofducks/ansible-vim'
 Plug 'rlue/vim-barbaric'

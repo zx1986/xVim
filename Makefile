@@ -21,8 +21,28 @@ python: ## 配置搭配的 python 環境
 
 .PHONY: plugins
 plugins: ## 安裝 vim 外掛
-	vim -c 'PlugInstall'
-	vim -c 'PlugClean'
+	nvim -c 'PlugInstall'
+	nvim -c 'PlugClean'
+	nvim -c 'CocInstall \
+		coc-css \
+		coc-emmet \
+		coc-git \
+		coc-gocode \
+		coc-highlight \
+		coc-html \
+		coc-imselect \
+		coc-json \
+		coc-lists \
+		coc-pairs \
+		coc-phpls \
+		coc-python \
+		coc-snippets \
+		coc-solargraph \
+		coc-tabnine \
+		coc-ultisnips \
+		coc-vetur \
+		coc-yaml \
+		coc-yank'
 
 .PHONY: delete
 delete: ## 移除現有配置

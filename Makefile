@@ -42,6 +42,7 @@ plugins: ## 安裝 vim 外掛
 		coc-vetur \
 		coc-yaml \
 		coc-yank'
+	cp -iv snippets/* $(HOME)/.config/coc/ultisnips/
 
 .PHONY: delete
 delete: ## 移除現有配置

@@ -59,9 +59,7 @@ hi Normal ctermbg=none
 """ Snippets
 
 " https://github.com/SirVer/ultisnips/issues/1052
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsExpandTrigger="<nop>"
 
 """ Conquer of Completion
 

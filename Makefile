@@ -30,7 +30,6 @@ plugins: ## 安裝 vim 外掛
 		coc-gocode \
 		coc-highlight \
 		coc-html \
-		coc-imselect \
 		coc-json \
 		coc-lists \
 		coc-pairs \

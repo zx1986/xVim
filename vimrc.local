@@ -45,6 +45,9 @@ hi Normal ctermbg=none
 
 """ Conquer of Completion
 
+" https://github.com/SirVer/ultisnips/issues/1052
+let g:UltiSnipsExpandTrigger = "<nop>"
+
 " TextEdit might fail if hidden is not set.
 set hidden
 

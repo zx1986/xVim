@@ -4,6 +4,12 @@ inoremap jj <esc>
 " https://github.com/avelino/vim-bootstrap/issues/300
 set clipboard=
 
+" 顯示最近執行的 cmd
+set showcmd
+
+" 標識 cursor 行列
+set cursorline
+
 " Ctags 函式檢索
 let g:rails_ctags_arguments = ['--languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)']
 

@@ -11,6 +11,7 @@ Plug 'hashivim/vim-packer'
 Plug 'hashivim/vim-terraform'
 Plug 'ibhagwan/fzf-lua'
 Plug 'junegunn/vim-easy-align'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pearofducks/ansible-vim'
 Plug 'rlue/vim-barbaric'
 Plug 'ruby-formatter/rufo-vim'

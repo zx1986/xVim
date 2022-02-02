@@ -8,6 +8,10 @@ let g:rails_ctags_arguments = ['--languages=ruby --exclude=.git --exclude=log . 
 " https://stackoverflow.com/questions/225266/customising-word-separators-in-vi
 "set iskeyword-=_
 
+set list
+set listchars=trail:·,precedes:«,extends:»,tab:▸\ ,eol:↲
+set vb t_vb= " Turn off visual bell, error flash
+
 " FZF
 nnoremap <c-P> <cmd>lua require('fzf-lua').files()<CR>
 

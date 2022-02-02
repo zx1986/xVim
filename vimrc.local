@@ -43,10 +43,14 @@ hi Normal ctermbg=none
 "hi LineNr ctermbg=none
 "hi NonText ctermbg=none
 
-""" Conquer of Completion
+""" Snippets
 
 " https://github.com/SirVer/ultisnips/issues/1052
-let g:UltiSnipsExpandTrigger = "<nop>"
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+
+""" Conquer of Completion
 
 " TextEdit might fail if hidden is not set.
 set hidden

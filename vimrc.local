@@ -1,6 +1,9 @@
 " 將輸入模式下的 jj 對應成 Esc
 inoremap jj <esc>
 
+" https://github.com/avelino/vim-bootstrap/issues/300
+set clipboard=
+
 " Ctags 函式檢索
 let g:rails_ctags_arguments = ['--languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)']
 

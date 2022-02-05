@@ -1,6 +1,9 @@
 " 將輸入模式下的 jj 對應成 Esc
 inoremap jj <esc>
 
+" https://superuser.com/questions/366288/disable-mouse-clicks-in-gvim-on-ubuntu
+set mouse=c
+
 " https://github.com/avelino/vim-bootstrap/issues/300
 set clipboard=
 

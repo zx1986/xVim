@@ -1,4 +1,4 @@
-" vim-bootstrap 2022-01-27 15:04:48
+" vim-bootstrap 2022-10-09 15:07:34
 
 "*****************************************************************************
 "" Vim-Plug core
@@ -10,7 +10,7 @@ else
   let curl_exists=expand('curl')
 endif
 
-let g:vim_bootstrap_langs = "go,html,javascript,php,python,ruby"
+let g:vim_bootstrap_langs = "go,html,javascript,php,python,ruby,typescript"
 let g:vim_bootstrap_editor = "nvim"				" nvim or vim
 let g:vim_bootstrap_theme = "gruvbox"
 let g:vim_bootstrap_frams = "vuejs"
@@ -113,6 +113,11 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'ecomba/vim-ruby-refactoring', {'tag': 'main'}
 
 
+" typescript
+Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
+
+
 " vuejs
 Plug 'posva/vim-vue'
 Plug 'leafOfTree/vim-vue-plugin'
@@ -187,7 +192,7 @@ set number
 let no_buffers_menu=1
 colorscheme gruvbox
 
-" Better command line completion
+" Better command line completion 
 set wildmenu
 
 " mouse support
@@ -208,11 +213,11 @@ else
 
   " IndentLine
   let g:indentLine_enabled = 1
-  let g:indentLine_concealcursor = 0
+  let g:indentLine_concealcursor = ''
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
 
-
+  
 endif
 
 
@@ -653,6 +658,10 @@ nnoremap <leader>rit  :RInlineTemp<cr>
 vnoremap <leader>rrlv :RRenameLocalVariable<cr>
 vnoremap <leader>rriv :RRenameInstanceVariable<cr>
 vnoremap <leader>rem  :RExtractMethod<cr>
+
+
+" typescript
+let g:yats_host_keyword = 1
 
 
 

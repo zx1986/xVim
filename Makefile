@@ -5,6 +5,7 @@ init: ## 初始化安裝配置 neovim
 	ln -nsiF $(PWD)/vimrc.bootstrap $(HOME)/.config/nvim/init.vim
 	ln -nsiF $(PWD)/vimrc.local $(HOME)/.config/nvim/local_init.vim
 	ln -nsiF $(PWD)/vimrc.local.bundles $(HOME)/.config/nvim/local_bundles.vim
+	nvim -c checkhealth
 
 .PHONY: ruby
 ruby: ## 配置搭配的 Ruby 環境

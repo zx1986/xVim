@@ -36,7 +36,7 @@ let g:ruby_host_prog = '~/.asdf/shims/neovim-ruby-host'
 " Python
 autocmd FileType python setlocal colorcolumn=119
 let g:loaded_python_provider = 0
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python3_host_prog = '~/.asdf/shims/python3'
 
 " Ansible
 "au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible

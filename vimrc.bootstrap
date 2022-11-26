@@ -1,4 +1,4 @@
-" vim-bootstrap 2022-11-26 04:39:25
+" vim-bootstrap 2022-11-26 05:08:57
 
 "*****************************************************************************
 "" Vim-Plug core
@@ -12,7 +12,7 @@ endif
 
 let g:vim_bootstrap_langs = "go,html,javascript,php,python,ruby,typescript"
 let g:vim_bootstrap_editor = "nvim"				" nvim or vim
-let g:vim_bootstrap_theme = "molokai"
+let g:vim_bootstrap_theme = "gruvbox"
 let g:vim_bootstrap_frams = "vuejs"
 
 if !filereadable(vimplug_exists)
@@ -49,8 +49,7 @@ Plug 'dense-analysis/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'editor-bootstrap/vim-bootstrap-updater'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
-Plug 'tomasr/molokai'
-
+Plug 'morhetz/gruvbox'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -191,8 +190,7 @@ set ruler
 set number
 
 let no_buffers_menu=1
-colorscheme molokai
-
+colorscheme gruvbox
 
 " Better command line completion 
 set wildmenu

@@ -9,14 +9,17 @@ init: ## 初始化安裝配置 neovim
 
 .PHONY: ruby
 ruby: ## 配置搭配的 Ruby 環境
+	which ruby
 	gem install neovim solargraph
 
 .PHONY: node
 node: ## 配置搭配的 NodeJS 環境
+	which node
 	npm install -g neovim
 
 .PHONY: python
 python: ## 配置搭配的 python 環境
+	which python3
 	python3 -m pip uninstall neovim pynvim
 	python3 -m pip install --user --upgrade pynvim flake8
 

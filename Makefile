@@ -1,6 +1,6 @@
 .PHONY: init
 init: ## 初始化安裝配置 neovim
-	brew install ctags neovim
+	brew install ctags cmake neovim
 	mkdir -p $(HOME)/.config/nvim
 	ln -nsiF $(PWD)/vimrc.bootstrap $(HOME)/.config/nvim/init.vim
 	ln -nsiF $(PWD)/vimrc.local $(HOME)/.config/nvim/local_init.vim
@@ -31,27 +31,6 @@ python: ## 配置搭配的 python 環境
 plugin: ## 安裝 vim 外掛
 	nvim -c 'PlugInstall'
 	nvim -c 'PlugClean'
-	nvim -c 'CocInstall \
-		coc-css \
-		coc-emmet \
-		coc-git \
-		coc-gocode \
-		coc-highlight \
-		coc-html \
-		coc-jedi \
-		coc-json \
-		coc-lists \
-		coc-pairs \
-		coc-phpls \
-		coc-python \
-		coc-snippets \
-		coc-solargraph \
-		coc-tabnine \
-		coc-ultisnips \
-		coc-vetur \
-		coc-yaml \
-		coc-yank'
-	cp -iv snippets/* $(HOME)/.config/coc/ultisnips/
 
 .PHONY: delete
 delete: ## 移除現有配置

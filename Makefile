@@ -1,7 +1,7 @@
 .PHONY: init
 init: ## 初始化安裝配置 neovim
 	brew uninstall ctags
-	brew install universal-ctags neovim
+	brew install universal-ctags cmake neovim
 	mkdir -p $(HOME)/.config/nvim
 	ln -nsiF $(PWD)/vimrc.bootstrap $(HOME)/.config/nvim/init.vim
 	ln -nsiF $(PWD)/vimrc.local $(HOME)/.config/nvim/local_init.vim

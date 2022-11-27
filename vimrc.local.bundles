@@ -1,6 +1,5 @@
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'KurtPreston/vim-autoformat-rails'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'altercation/vim-colors-solarized'
 Plug 'andrewstuart/vim-kubernetes'
 Plug 'arcticicestudio/nord-vim'
@@ -12,6 +11,7 @@ Plug 'hashivim/vim-packer'
 Plug 'hashivim/vim-terraform'
 Plug 'ibhagwan/fzf-lua'
 Plug 'junegunn/vim-easy-align'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pearofducks/ansible-vim'
 Plug 'ruby-formatter/rufo-vim'
 Plug 'ryanoasis/vim-devicons'

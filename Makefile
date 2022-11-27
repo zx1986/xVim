@@ -25,7 +25,7 @@ nodejs: ## 配置搭配的 NodeJS 環境
 python: ## 配置搭配的 python 環境
 	which python3
 	python3 -m pip uninstall neovim pynvim
-	python3 -m pip install --user --upgrade pynvim flake8
+	python3 -m pip install --user --upgrade pynvim flake8 jedi
 
 .PHONY: plugin
 plugin: ## 安裝 vim 外掛
@@ -38,6 +38,7 @@ plugin: ## 安裝 vim 外掛
 		coc-gocode \
 		coc-highlight \
 		coc-html \
+		coc-jedi \
 		coc-json \
 		coc-lists \
 		coc-pairs \

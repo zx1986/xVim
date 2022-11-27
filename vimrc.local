@@ -82,3 +82,6 @@ set updatetime=300
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
+
+" deoplete.nvim
+let g:deoplete#enable_at_startup = 1

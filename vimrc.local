@@ -1,3 +1,6 @@
+set cursorline        " highlight current line
+set cursorcolumn      " highlight current column
+
 " 將輸入模式下的 jj 對應成 Esc
 inoremap jj <esc>
 

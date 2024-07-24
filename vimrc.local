@@ -34,12 +34,12 @@ nnoremap <c-P> <cmd>lua require('fzf-lua').files()<CR>
 
 " Ruby
 let g:rufo_auto_formatting = 0
-let g:ruby_host_prog = '~/.asdf/shims/neovim-ruby-host'
+let g:ruby_host_prog = '/opt/homebrew/opt/ruby/bin/ruby'
 
 " Python
 autocmd FileType python setlocal colorcolumn=119
 let g:loaded_python_provider = 0
-let g:python3_host_prog = '~/.asdf/shims/python3'
+let g:python3_host_prog = '/opt/homebrew/bin/python3'
 
 " Ansible
 "au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible

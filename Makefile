@@ -1,14 +1,10 @@
 .PHONY: init
 init: ## 初始化安裝配置 neovim
-	brew uninstall ctags
 	brew install universal-ctags cmake neovim
 	mkdir -p $(HOME)/.config/nvim
 	ln -nsiF $(PWD)/vimrc.bootstrap $(HOME)/.config/nvim/init.vim
 	ln -nsiF $(PWD)/vimrc.local $(HOME)/.config/nvim/local_init.vim
 	ln -nsiF $(PWD)/vimrc.local.bundles $(HOME)/.config/nvim/local_bundles.vim
-	$(MAKE) nodejs
-	$(MAKE) python
-	$(MAKE) ruby
 	$(MAKE) plugin
 	nvim -c checkhealth
 
@@ -25,8 +21,9 @@ nodejs: ## 配置搭配的 NodeJS 環境
 .PHONY: python
 python: ## 配置搭配的 python 環境
 	which python3
-	python3 -m pip uninstall neovim pynvim
-	python3 -m pip install --user --upgrade pynvim flake8 jedi
+	which pip3
+	brew install flake8
+	python3 -m pip install --user --upgrade --break-system-packages pynvim jedi
 
 .PHONY: plugin
 plugin: ## 安裝 vim 外掛

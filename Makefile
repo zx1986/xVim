@@ -20,10 +20,9 @@ nodejs: ## 配置搭配的 NodeJS 環境
 
 .PHONY: python
 python: ## 配置搭配的 python 環境
-	which python3
-	which pip3
-	brew install flake8
+	brew install python pipx
 	python3 -m pip install --user --upgrade --break-system-packages pynvim jedi
+	pipx install flake8
 
 .PHONY: plugin
 plugin: ## 安裝 vim 外掛
@@ -42,7 +41,6 @@ plugin: ## 安裝 vim 外掛
              coc-lists \
              coc-pairs \
              coc-phpls \
-             coc-python \
              coc-snippets \
              coc-solargraph \
              coc-ultisnips \

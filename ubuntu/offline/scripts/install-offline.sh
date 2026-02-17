@@ -176,7 +176,10 @@ CONFIG_DEST="$HOME/.config/nvim"
 echo "  Debug: CONFIG_SRC=$CONFIG_SRC"
 echo "  Debug: CONFIG_DEST=$CONFIG_DEST"
 
-if [ -d "$CONFIG_SRC" ]; then
+# Check if source and destination are the same (e.g., Docker volume mount)
+if [ "$CONFIG_SRC" = "$CONFIG_DEST" ]; then
+    echo -e "${GREEN}✓ Configuration already mounted at $CONFIG_DEST (skipping copy)${NC}"
+elif [ -d "$CONFIG_SRC" ]; then
     # Create parent directory if it doesn't exist
     mkdir -p "$(dirname "$CONFIG_DEST")"
     

@@ -31,7 +31,7 @@ check_command() {
         return 0
     else
         echo -e "${RED}✗${NC} $name: Not found"
-        ((ERRORS++))
+        ERRORS=$((ERRORS + 1))
         return 1
     fi
 }
@@ -46,7 +46,7 @@ check_file() {
         return 0
     else
         echo -e "${RED}✗${NC} $name: Not found"
-        ((ERRORS++))
+        ERRORS=$((ERRORS + 1))
         return 1
     fi
 }
@@ -61,14 +61,14 @@ check_dir() {
         local count=$(find "$dir" -mindepth 1 -maxdepth 1 -type d 2>/dev/null | wc -l)
         if [ -n "$count_expected" ] && [ "$count" -lt "$count_expected" ]; then
             echo -e "${YELLOW}⚠${NC} $name: Found ($count items, expected at least $count_expected)"
-            ((WARNINGS++))
+            WARNINGS=$((WARNINGS + 1))
         else
             echo -e "${GREEN}✓${NC} $name: Found ($count items)"
         fi
         return 0
     else
         echo -e "${RED}✗${NC} $name: Not found"
-        ((ERRORS++))
+        ERRORS=$((ERRORS + 1))
         return 1
     fi
 }
@@ -83,14 +83,14 @@ check_dir_files() {
         local count=$(find "$dir" -mindepth 1 -maxdepth 1 -type f 2>/dev/null | wc -l)
         if [ -n "$count_expected" ] && [ "$count" -lt "$count_expected" ]; then
             echo -e "${YELLOW}⚠${NC} $name: Found ($count files, expected at least $count_expected)"
-            ((WARNINGS++))
+            WARNINGS=$((WARNINGS + 1))
         else
             echo -e "${GREEN}✓${NC} $name: Found ($count files)"
         fi
         return 0
     else
         echo -e "${RED}✗${NC} $name: Not found"
-        ((ERRORS++))
+        ERRORS=$((ERRORS + 1))
         return 1
     fi
 }
@@ -105,7 +105,7 @@ if check_command "nvim" "Neovim"; then
         echo -e "${GREEN}✓${NC} Neovim version $nvim_version >= $min_version"
     else
         echo -e "${YELLOW}⚠${NC} Neovim version $nvim_version < $min_version (may have compatibility issues)"
-        ((WARNINGS++))
+        WARNINGS=$((WARNINGS + 1))
     fi
 fi
 echo ""
@@ -136,7 +136,7 @@ for lsp in lua-language-server gopls pyright; do
         echo -e "${GREEN}✓${NC} $lsp: Available in PATH"
     else
         echo -e "${YELLOW}⚠${NC} $lsp: Not in PATH (may still work if in LSP directory)"
-        ((WARNINGS++))
+        WARNINGS=$((WARNINGS + 1))
     fi
 done
 echo ""
@@ -151,11 +151,11 @@ if [ -d "$PARSER_DIR" ]; then
         echo -e "${GREEN}✓${NC} Treesitter parsers: $parser_count parsers installed"
     else
         echo -e "${YELLOW}⚠${NC} Treesitter parsers: None found (will be compiled on first use)"
-        ((WARNINGS++))
+        WARNINGS=$((WARNINGS + 1))
     fi
 else
     echo -e "${YELLOW}⚠${NC} Treesitter parser directory not found"
-    ((WARNINGS++))
+    WARNINGS=$((WARNINGS + 1))
 fi
 echo ""
 
@@ -167,7 +167,7 @@ if nvim --headless +"lua print('Neovim can execute Lua')" +qa 2>&1 | grep -q "Ne
     echo -e "${GREEN}✓${NC} Neovim Lua execution: OK"
 else
     echo -e "${RED}✗${NC} Neovim Lua execution: Failed"
-    ((ERRORS++))
+    ERRORS=$((ERRORS + 1))
 fi
 
 # Test if plugins can load
@@ -175,7 +175,7 @@ if nvim --headless +"lua require('lazy')" +qa 2>&1; then
     echo -e "${GREEN}✓${NC} Lazy.nvim loading: OK"
 else
     echo -e "${RED}✗${NC} Lazy.nvim loading: Failed"
-    ((ERRORS++))
+    ERRORS=$((ERRORS + 1))
 fi
 
 # Test LSP config
@@ -183,7 +183,7 @@ if nvim --headless +"lua require('lspconfig')" +qa 2>&1; then
     echo -e "${GREEN}✓${NC} LSP config loading: OK"
 else
     echo -e "${RED}✗${NC} LSP config loading: Failed"
-    ((ERRORS++))
+    ERRORS=$((ERRORS + 1))
 fi
 
 # Test completion
@@ -191,7 +191,7 @@ if nvim --headless +"lua require('cmp')" +qa 2>&1; then
     echo -e "${GREEN}✓${NC} nvim-cmp loading: OK"
 else
     echo -e "${RED}✗${NC} nvim-cmp loading: Failed"
-    ((ERRORS++))
+    ERRORS=$((ERRORS + 1))
 fi
 
 echo ""

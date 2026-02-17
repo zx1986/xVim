@@ -9,7 +9,16 @@ RUN apt-get update && apt-get install -y \
     ca-certificates \
     locales \
     sudo \
+    fzf \
+    gopls \
+    nodejs \
+    npm \
+    build-essential \
+    git \
+    curl \
     && rm -rf /var/lib/apt/lists/*
+
+RUN npm install -g pyright
 
 # Set up locale
 RUN locale-gen en_US.UTF-8

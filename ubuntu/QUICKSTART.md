@@ -34,13 +34,4 @@ cd ubuntu/docker
 ./test-install.sh
 ```
 
-## Features
-
-- ✅ Complete offline installation
-- ✅ Native Neovim LSP (no CoC.nvim, no Node.js)
-- ✅ LazyVim plugin manager
-- ✅ 70+ development plugins
-- ✅ Multi-language: Go, Python, Ruby, TypeScript, PHP, etc.
-- ✅ Docker test environment
-
 See [README.md](README.md) for detailed documentation.

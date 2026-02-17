@@ -3,6 +3,8 @@
 
 set -e
 
+PATH=~/.local/bin:$PATH
+
 # Colors
 GREEN='\033[0;32m'
 RED='\033[0;31m'
@@ -71,6 +73,28 @@ check_dir() {
     fi
 }
 
+# Helper function to check directory with files
+check_dir_files() {
+    local dir=$1
+    local name=$2
+    local count_expected=$3
+    
+    if [ -d "$dir" ]; then
+        local count=$(find "$dir" -mindepth 1 -maxdepth 1 -type f 2>/dev/null | wc -l)
+        if [ -n "$count_expected" ] && [ "$count" -lt "$count_expected" ]; then
+            echo -e "${YELLOW}⚠${NC} $name: Found ($count files, expected at least $count_expected)"
+            ((WARNINGS++))
+        else
+            echo -e "${GREEN}✓${NC} $name: Found ($count files)"
+        fi
+        return 0
+    else
+        echo -e "${RED}✗${NC} $name: Not found"
+        ((ERRORS++))
+        return 1
+    fi
+}
+
 # 1. Check Neovim binary
 echo -e "${BLUE}[1/6] Checking Neovim installation...${NC}"
 if check_command "nvim" "Neovim"; then
@@ -89,17 +113,17 @@ echo ""
 # 2. Check Neovim configuration
 echo -e "${BLUE}[2/6] Checking Neovim configuration...${NC}"
 check_file "$HOME/.config/nvim/init.lua" "init.lua"
-check_dir "$HOME/.config/nvim/lua/config" "Config modules" 3
-check_dir "$HOME/.config/nvim/lua/plugins" "Plugin configs" 4
+check_dir_files "$HOME/.config/nvim/lua/config" "Config modules" 3
+check_dir_files "$HOME/.config/nvim/lua/plugins" "Plugin configs" 4
 echo ""
 
 # 3. Check plugins
 echo -e "${BLUE}[3/6] Checking plugins installation...${NC}"
 check_dir "$HOME/.local/share/nvim/lazy" "Lazy plugins directory" 30
-check_file "$HOME/.local/share/nvim/lazy/lazy.nvim/lua/lazy.lua" "Lazy.nvim"
+check_file "$HOME/.local/share/nvim/lazy/lazy.nvim/lua/lazy/init.lua" "Lazy.nvim"
 check_file "$HOME/.local/share/nvim/lazy/nvim-lspconfig/lua/lspconfig.lua" "LSP config"
 check_file "$HOME/.local/share/nvim/lazy/nvim-cmp/lua/cmp/init.lua" "nvim-cmp"
-check_file "$HOME/.local/share/nvim/lazy/nvim-treesitter/lua/nvim-treesitter.lua" "Treesitter"
+check_file "$HOME/.local/share/nvim/lazy/nvim-treesitter/lua/nvim-treesitter/init.lua" "Treesitter"
 echo ""
 
 # 4. Check LSP servers
@@ -120,6 +144,7 @@ echo ""
 # 5. Check Treesitter parsers
 echo -e "${BLUE}[5/6] Checking Treesitter parsers...${NC}"
 PARSER_DIR="$HOME/.local/share/nvim/lazy/nvim-treesitter/parser"
+mkdir -p "$PARSER_DIR"
 if [ -d "$PARSER_DIR" ]; then
     parser_count=$(find "$PARSER_DIR" -name "*.so" 2>/dev/null | wc -l)
     if [ "$parser_count" -gt 0 ]; then

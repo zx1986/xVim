@@ -59,7 +59,7 @@ cd xVim/ubuntu/offline/scripts
 ./download.sh
 
 # This will download:
-# - Neovim AppImage
+# - Neovim tarball (nvim-linux64.tar.gz)
 # - System dependencies (.deb files)
 # - LSP servers (lua-ls, gopls, pyright, etc.)
 # - All Vim plugins (70+ repositories)

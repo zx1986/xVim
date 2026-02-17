@@ -60,26 +60,32 @@ else
     echo ""
 fi
 
-# 3. Install Neovim AppImage
+# 3. Install Neovim from tarball
 echo -e "${BLUE}[3/7] Installing Neovim...${NC}"
-NVIM_APPIMAGE="$PACKAGES_DIR/neovim/nvim.appimage"
+NVIM_TARBALL="$PACKAGES_DIR/neovim/nvim-linux-x86_64.tar.gz"
 
-if [ -f "$NVIM_APPIMAGE" ]; then
+if [ -f "$NVIM_TARBALL" ]; then
     if [ "$1" != "--user-only" ]; then
         # System-wide installation
-        cp "$NVIM_APPIMAGE" /usr/local/bin/nvim
-        chmod +x /usr/local/bin/nvim
-        echo -e "${GREEN}✓ Neovim installed to /usr/local/bin/nvim${NC}"
+        echo "  Extracting to /usr/local..."
+        tar -xzf "$NVIM_TARBALL" -C /tmp/
+        cp -r /tmp/nvim-linux-x86_64/* /usr/local/
+        rm -rf /tmp/nvim-linux-x86_64
+        echo -e "${GREEN}✓ Neovim installed to /usr/local${NC}"
     else
         # User installation
-        mkdir -p "$HOME/.local/bin"
-        cp "$NVIM_APPIMAGE" "$HOME/.local/bin/nvim"
-        chmod +x "$HOME/.local/bin/nvim"
-        echo -e "${GREEN}✓ Neovim installed to ~/.local/bin/nvim${NC}"
+        echo "  Extracting to ~/.local..."
+        mkdir -p "$HOME/.local"
+        tar -xzf "$NVIM_TARBALL" -C /tmp/
+        cp -r /tmp/nvim-linux-x86_64/bin/* "$HOME/.local/bin/" 2>/dev/null || mkdir -p "$HOME/.local/bin" && cp -r /tmp/nvim-linux-x86_64/bin/* "$HOME/.local/bin/"
+        cp -r /tmp/nvim-linux-x86_64/lib/* "$HOME/.local/lib/" 2>/dev/null || mkdir -p "$HOME/.local/lib" && cp -r /tmp/nvim-linux-x86_64/lib/* "$HOME/.local/lib/"
+        cp -r /tmp/nvim-linux-x86_64/share/* "$HOME/.local/share/" 2>/dev/null || mkdir -p "$HOME/.local/share" && cp -r /tmp/nvim-linux-x86_64/share/* "$HOME/.local/share/"
+        rm -rf /tmp/nvim-linux-x86_64
+        echo -e "${GREEN}✓ Neovim installed to ~/.local${NC}"
         echo -e "${YELLOW}  Make sure ~/.local/bin is in your PATH${NC}"
     fi
 else
-    echo -e "${RED}✗ Neovim AppImage not found!${NC}"
+    echo -e "${RED}✗ Neovim tarball not found!${NC}"
     exit 1
 fi
 echo ""
@@ -129,20 +135,51 @@ PLUGINS_SRC="$PACKAGES_DIR/plugins"
 PLUGINS_DEST="$HOME/.local/share/nvim/lazy"
 mkdir -p "$PLUGINS_DEST"
 
+echo "  Debug: PLUGINS_SRC=$PLUGINS_SRC"
+echo "  Debug: PLUGINS_DEST=$PLUGINS_DEST"
+
 if [ -d "$PLUGINS_SRC" ]; then
-    cp -r "$PLUGINS_SRC"/* "$PLUGINS_DEST/" 2>/dev/null || true
-    echo -e "${GREEN}✓ $(ls -1 "$PLUGINS_SRC" | wc -l) plugins installed${NC}"
+    plugin_count=$(ls -1 "$PLUGINS_SRC" 2>/dev/null | wc -l | tr -d ' ')
+    echo "  Found $plugin_count plugins in source directory"
+    
+    if [ "$plugin_count" -gt 0 ]; then
+        cp -r "$PLUGINS_SRC"/* "$PLUGINS_DEST/" 2>/dev/null || {
+            echo -e "${RED}  Warning: Failed to copy some plugins${NC}"
+        }
+        
+        installed_count=$(ls -1 "$PLUGINS_DEST" 2>/dev/null | wc -l | tr -d ' ')
+        echo -e "${GREEN}✓ $installed_count plugins installed${NC}"
+    else
+        echo -e "${YELLOW}⚠ No plugins found in source directory${NC}"
+    fi
 else
-    echo -e "${YELLOW}⚠ No plugins directory found${NC}"
+    echo -e "${YELLOW}⚠ No plugins directory found at: $PLUGINS_SRC${NC}"
 fi
 echo ""
 
 # 6. Copy Neovim configuration
 echo -e "${BLUE}[6/7] Installing Neovim configuration...${NC}"
-CONFIG_SRC="$(dirname "$(dirname "$OFFLINE_DIR")")/config"
+
+# In Docker, config is mounted at /home/testuser/.config/nvim
+# Try multiple possible locations
+if [ -d "/home/testuser/.config/nvim" ]; then
+    CONFIG_SRC="/home/testuser/.config/nvim"
+elif [ -d "$OFFLINE_DIR/../config" ]; then
+    CONFIG_SRC="$OFFLINE_DIR/../config"
+else
+    # Fallback to computed path
+    CONFIG_SRC="$(dirname "$(dirname "$OFFLINE_DIR")")/config"
+fi
+
 CONFIG_DEST="$HOME/.config/nvim"
 
+echo "  Debug: CONFIG_SRC=$CONFIG_SRC"
+echo "  Debug: CONFIG_DEST=$CONFIG_DEST"
+
 if [ -d "$CONFIG_SRC" ]; then
+    # Create parent directory if it doesn't exist
+    mkdir -p "$(dirname "$CONFIG_DEST")"
+    
     # Backup existing config
     if [ -d "$CONFIG_DEST" ]; then
         BACKUP_DIR="$CONFIG_DEST.backup.$(date +%Y%m%d_%H%M%S)"
@@ -152,9 +189,12 @@ if [ -d "$CONFIG_SRC" ]; then
     
     # Copy new config
     cp -r "$CONFIG_SRC" "$CONFIG_DEST"
-    echo -e "${GREEN}✓ Configuration installed to ~/.config/nvim${NC}"
+    echo -e "${GREEN}✓ Configuration installed to $CONFIG_DEST${NC}"
 else
     echo -e "${YELLOW}⚠ Configuration directory not found at: $CONFIG_SRC${NC}"
+    echo -e "${YELLOW}  Tried locations:${NC}"
+    echo -e "${YELLOW}    - /home/testuser/.config/nvim${NC}"
+    echo -e "${YELLOW}    - $OFFLINE_DIR/../config${NC}"
 fi
 echo ""
 

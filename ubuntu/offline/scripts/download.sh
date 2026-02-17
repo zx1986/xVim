@@ -23,13 +23,12 @@ GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-# 1. Download Neovim AppImage
-echo -e "${BLUE}[1/5] Downloading Neovim AppImage...${NC}"
-NVIM_VERSION="v0.9.5"
-NVIM_URL="https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/nvim.appimage"
-curl -L "$NVIM_URL" -o "$PACKAGES_DIR/neovim/nvim.appimage"
-chmod +x "$PACKAGES_DIR/neovim/nvim.appimage"
-echo -e "${GREEN}✓ Neovim AppImage downloaded${NC}"
+# 1. Download Neovim tarball
+echo -e "${BLUE}[1/5] Downloading Neovim tarball...${NC}"
+NVIM_VERSION="v0.11.6"
+NVIM_URL="https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/nvim-linux-x86_64.tar.gz"
+curl -L "$NVIM_URL" -o "$PACKAGES_DIR/neovim/nvim-linux-x86_64.tar.gz"
+echo -e "${GREEN}✓ Neovim tarball downloaded${NC}"
 echo ""
 
 # 2. Download system dependencies (.deb files)
@@ -64,8 +63,8 @@ curl -L "https://github.com/LuaLS/lua-language-server/releases/download/${LUA_LS
 
 # gopls
 echo "  - Downloading gopls..."
-GOPLS_VERSION="v0.14.2"
-curl -L "https://github.com/golang/tools/releases/download/gopls%2F${GOPLS_VERSION}/gopls-linux-amd64.tar.gz" \
+GOPLS_VERSION="v0.21.1"
+curl -L "https://github.com/golang/tools/archive/refs/tags/gopls/${GOPLS_VERSION}.tar.gz" \
     -o "$LSP_DIR/gopls.tar.gz"
 
 # pyright (need npm for this, will bundle node modules)

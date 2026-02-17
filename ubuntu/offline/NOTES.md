@@ -2,7 +2,7 @@
 
 ## Package Sizes (Approximate)
 
-- Neovim AppImage: ~12MB
+- Neovim tarball: ~30MB (extracted: ~80MB)
 - System dependencies (.deb): ~5-10MB  
 - LSP servers: ~100-200MB total
   - lua-language-server: ~40MB
@@ -17,7 +17,7 @@
 ## Download Script Details
 
 The `download.sh` script:
-1. Downloads Neovim v0.9.5 AppImage
+1. Downloads Neovim v0.9.5 tarball (nvim-linux64.tar.gz)
 2. Downloads .deb packages using `apt-get download`
 3. Downloads LSP server binaries and npm packages
 4. Clones all plugin repositories (shallow clone, depth=1)
@@ -28,7 +28,7 @@ The `download.sh` script:
 The `install-offline.sh` script:
 1. Verifies package integrity (optional, based on checksums)
 2. Installs .deb packages using `dpkg -i`
-3. Installs Neovim AppImage to `/usr/local/bin/nvim` (or `~/.local/bin`)
+3. Extracts and installs Neovim tarball to `/usr/local/` (or `~/.local/`)
 4. Extracts LSP servers to `~/.local/share/nvim/lsp/`
 5. Copies plugins to `~/.local/share/nvim/lazy/`
 6. Copies configuration to `~/.config/nvim/`

@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  nvim-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nvim-ubuntu-test
+    hostname: nvim-test
+
+    volumes:
+      # Mount Neovim configuration
+      - ../config:/home/testuser/.config/nvim:ro
+
+      # Mount offline packages for installation
+      - ../offline:/opt/nvim-offline:ro
+
+      # Workspace for testing
+      - ./workspace:/home/testuser/workspace
+
+    # Keep container running
+    tty: true
+    stdin_open: true
+
+    # Optional: disable network for true offline testing
+    # Uncomment the following lines to simulate offline environment
+    # network_mode: none
+
+    environment:
+      - TERM=xterm-256color
+      - COLORTERM=truecolor

@@ -11,7 +11,7 @@ return {
       "williamboman/mason-lspconfig.nvim",
     },
     config = function()
-      local lspconfig = require("lspconfig")
+      -- lspconfig will be loaded later with pcall for proper error handling
       local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
       -- Add additional capabilities supported by nvim-cmp
@@ -89,8 +89,8 @@ return {
             },
           },
         },
-        -- TypeScript/JavaScript
-        tsserver = {
+        -- TypeScript/JavaScript (ts_ls replaces deprecated tsserver in nvim 0.11+)
+        ts_ls = {
           settings = {},
         },
         -- HTML/CSS/JSON
@@ -115,14 +115,44 @@ return {
             },
           },
         },
+        -- YAML (with Kubernetes schema support)
+        yamlls = {
+          settings = {
+            yaml = {
+              schemas = {
+                kubernetes = "*.yaml",
+                ["https://json.schemastore.org/github-workflow.json"] = ".github/workflows/*.yml",
+              },
+              validate = true,
+              completion = true,
+              hover = true,
+            },
+          },
+        },
+        -- Terraform
+        terraformls = {},
       }
 
-      -- Setup language servers
-      for server, config in pairs(servers) do
-        lspconfig[server].setup(vim.tbl_deep_extend("force", {
-          capabilities = capabilities,
-          on_attach = on_attach,
-        }, config))
+      -- Setup LSP servers
+      -- Neovim 0.11+ uses vim.lsp.config instead of the deprecated lspconfig framework
+      if vim.lsp.config then
+        -- New API (nvim 0.11+)
+        for server_name, server_config in pairs(servers) do
+          vim.lsp.config(server_name, vim.tbl_deep_extend('force', {
+            capabilities = capabilities,
+            on_attach = on_attach,
+          }, server_config))
+        end
+        vim.lsp.enable(vim.tbl_keys(servers))
+      else
+        -- Fallback for older Neovim versions
+        local lspconfig = require('lspconfig')
+        for server_name, server_config in pairs(servers) do
+          lspconfig[server_name].setup(vim.tbl_deep_extend('force', {
+            capabilities = capabilities,
+            on_attach = on_attach,
+          }, server_config))
+        end
       end
     end,
   },
@@ -156,12 +186,14 @@ return {
           "lua_ls",
           "pyright",
           "gopls",
-          "tsserver",
+          "ts_ls",  -- Changed from tsserver (deprecated in nvim 0.11+)
           "html",
           "cssls",
           "jsonls",
           "intelephense",
           "solargraph",
+          "yamlls",
+          "terraformls",
         },
         automatic_installation = false, -- Disable in offline mode
       })
@@ -307,42 +339,41 @@ return {
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
     config = function()
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = {
-          "lua",
-          "vim",
-          "python",
-          "javascript",
-          "typescript",
-          "go",
-          "ruby",
-          "php",
-          "html",
-          "css",
-          "json",
-          "yaml",
-          "bash",
-          "markdown",
-        },
-        sync_install = false,
-        auto_install = false, -- Disable in offline mode
-        highlight = {
-          enable = true,
-          additional_vim_regex_highlighting = false,
-        },
-        indent = {
-          enable = true,
-        },
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            init_selection = "gnn",
-            node_incremental = "grn",
-            scope_incremental = "grc",
-            node_decremental = "grm",
+      -- nvim-treesitter removed the 'nvim-treesitter.configs' module in newer versions.
+      -- Use pcall to support both old and new API.
+      local ok, ts_configs = pcall(require, "nvim-treesitter.configs")
+      if ok then
+        ts_configs.setup({
+          ensure_installed = {
+            "lua", "vim", "python", "javascript", "typescript",
+            "go", "ruby", "php", "html", "css", "json", "yaml",
+            "bash", "markdown",
           },
-        },
-      })
+          sync_install = false,
+          auto_install = false,
+          highlight = {
+            enable = true,
+            additional_vim_regex_highlighting = false,
+          },
+          indent = { enable = true },
+          incremental_selection = {
+            enable = true,
+            keymaps = {
+              init_selection = "gnn",
+              node_incremental = "grn",
+              scope_incremental = "grc",
+              node_decremental = "grm",
+            },
+          },
+        })
+      else
+        -- New nvim-treesitter API (v1.0+): enable highlight per buffer if parser exists
+        vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+          callback = function()
+            pcall(vim.treesitter.start)
+          end,
+        })
+      end
     end,
   },
 }

@@ -39,16 +39,12 @@ RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/sh
 RUN pip3 install pynvim
 RUN npm install -g pyright typescript-language-server typescript yaml-language-server
 RUN gem install solargraph --no-document
-RUN go install golang.org/x/tools/gopls@v0.11.0 \
-    && cp -v /root/go/bin/gopls /usr/local/bin/
 
 # Set up locale
 RUN locale-gen en_US.UTF-8
 ENV LANG=en_US.UTF-8
 ENV LANGUAGE=en_US:en
 ENV LC_ALL=en_US.UTF-8
-
-ENV PATH="~/.local/bin:/usr/local/go/bin:${PATH}"
 
 # Create non-root user for realistic testing
 RUN useradd -m -s /bin/bash -G sudo testuser && \
@@ -58,6 +54,9 @@ RUN useradd -m -s /bin/bash -G sudo testuser && \
 USER testuser
 WORKDIR /home/testuser
 
+# Install LSP server for golang in user level
+RUN go install golang.org/x/tools/gopls@v0.11.0
+
 # Create necessary directories
 RUN mkdir -p /home/testuser/.config/nvim \
              /home/testuser/.local/share/nvim \
@@ -65,6 +64,8 @@ RUN mkdir -p /home/testuser/.config/nvim \
 
 # Set working directory
 WORKDIR /home/testuser/workspace
+
+ENV PATH="~/.local/bin:~/go/bin:${PATH}"
 
 # Default command
 CMD ["/bin/bash"]

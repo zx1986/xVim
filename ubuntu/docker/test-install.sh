@@ -20,7 +20,6 @@ docker-compose exec foobar bash -c "cd /opt/nvim-offline/scripts && ./install-of
 
 echo ""
 echo "[4/5] Running verification script..."
-# Run as root to check root's installation
 docker-compose exec foobar bash -c "/opt/nvim-offline/scripts/verify.sh"
 
 echo ""

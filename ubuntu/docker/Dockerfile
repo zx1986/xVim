@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y \
     python3-venv \
     ruby-full \
     nodejs \
+    npm \
     && rm -rf /var/lib/apt/lists/*
 
 # Python

@@ -7,8 +7,6 @@ cmp-nvim-lsp
 cmp-path
 CSApprox
 delimitMate
-django-plus.vim
-django.vim
 editorconfig-vim
 emmet-vim
 friendly-snippets
@@ -18,7 +16,6 @@ fzf.vim
 grep.vim
 gruvbox
 indentLine
-jedi-vim
 lazy.nvim
 LuaSnip
 mason-lspconfig.nvim
@@ -31,8 +28,6 @@ nvim-cmp
 nvim-lspconfig
 nvim-treesitter
 phpactor
-requirements.txt.vim
-rufo-vim
 splitjoin.vim
 tabular
 tagbar

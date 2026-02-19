@@ -206,8 +206,8 @@ nvim --headless '+checkhealth lsp' +qa
 ### Plugins not loading
 
 ```bash
-# Check Lazy status
-nvim +'Lazy status'
+# Open Lazy UI to check plugin status
+nvim +Lazy
 
 # Force sync
 nvim --headless '+Lazy! sync' +qa

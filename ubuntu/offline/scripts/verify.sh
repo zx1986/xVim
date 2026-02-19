@@ -3,8 +3,6 @@
 
 set -e
 
-PATH=~/.local/bin:$PATH
-
 # Colors
 GREEN='\033[0;32m'
 RED='\033[0;31m'
@@ -211,7 +209,7 @@ if [ $ERRORS -eq 0 ]; then
     echo ""
     echo "Recommended next steps:"
     echo "  1. Run: nvim --headless '+checkhealth' +qa  (detailed health check)"
-    echo "  2. Start Neovim and check :Lazy status"
+    echo "  2. Start Neovim and check plugins with :Lazy"
     echo "  3. Test LSP in a source file"
     exit 0
 else

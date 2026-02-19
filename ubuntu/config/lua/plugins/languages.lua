@@ -40,28 +40,6 @@ return {
     end,
   },
 
-  -- Python
-  {
-    "davidhalter/jedi-vim",
-    ft = "python",
-    config = function()
-      vim.g.jedi_popup_on_dot = 0
-      vim.g.jedi_goto_assignments_command = "<leader>g"
-      vim.g.jedi_goto_definitions_command = "<leader>d"
-      vim.g.jedi_documentation_command = "K"
-      vim.g.jedi_usages_command = "<leader>n"
-      vim.g.jedi_rename_command = "<leader>r"
-      vim.g.jedi_show_call_signatures = "0"
-      vim.g.jedi_completions_command = "<C-Space>"
-      vim.g.jedi_smart_auto_mappings = 0
-      vim.g.python_highlight_all = 1
-    end,
-  },
-
-  {
-    "raimon49/requirements.txt.vim",
-    ft = "requirements",
-  },
 
   -- Ruby
   {
@@ -118,13 +96,7 @@ return {
     end,
   },
 
-  {
-    "ruby-formatter/rufo-vim",
-    ft = "ruby",
-    config = function()
-      vim.g.rufo_auto_formatting = 0
-    end,
-  },
+
 
   -- TypeScript
   {
@@ -247,16 +219,7 @@ return {
     ft = "tmux",
   },
 
-  -- Django
-  {
-    "vim-scripts/django.vim",
-    ft = "python",
-  },
 
-  {
-    "tweekmonster/django-plus.vim",
-    ft = "python",
-  },
 
   -- Autoformat Rails
   {

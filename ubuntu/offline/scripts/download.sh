@@ -142,7 +142,7 @@ declare -a PLUGINS=(
     "godlygeek/tabular"
     "editorconfig/editorconfig-vim"
     "AndrewRadev/splitjoin.vim"
-    "wakatime/vim-wakatime"
+
     "morhetz/gruvbox"
     "arcticicestudio/nord-vim"
     "altercation/vim-colors-solarized"
@@ -153,14 +153,13 @@ declare -a PLUGINS=(
     "gko/vim-coloresque"
     "vim-scripts/CSApprox"
     "fatih/vim-go"
-    "davidhalter/jedi-vim"
-    "raimon49/requirements.txt.vim"
+
     "tpope/vim-rails"
     "tpope/vim-rake"
     "tpope/vim-projectionist"
     "thoughtbot/vim-rspec"
     "ecomba/vim-ruby-refactoring"
-    "ruby-formatter/rufo-vim"
+
     "leafgarland/typescript-vim"
     "HerringtonDarkholme/yats.vim"
     "jelera/vim-javascript-syntax"
@@ -176,8 +175,7 @@ declare -a PLUGINS=(
     "hashivim/vim-packer"
     "andrewstuart/vim-kubernetes"
     "tmux-plugins/vim-tmux"
-    "vim-scripts/django.vim"
-    "tweekmonster/django-plus.vim"
+
     "KurtPreston/vim-autoformat-rails"
     "vim-scripts/matchit.zip"
     "dbeniamine/cheat.sh-vim"

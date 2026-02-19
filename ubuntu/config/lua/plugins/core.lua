@@ -215,10 +215,4 @@ return {
       { "gJ", desc = "Join" },
     },
   },
-
-  --Wakatime
-  {
-    "wakatime/vim-wakatime",
-    lazy = false,
-  },
 }

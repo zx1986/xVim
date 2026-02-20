@@ -1,5 +1,5 @@
 .PHONY: init
-init: ## 初始化安裝配置 neovim
+init: ## 初始化安裝配置 neovim (舊版 vim-plug + CoC)
 	brew install universal-ctags cmake neovim
 	mkdir -p $(HOME)/.config/nvim
 	ln -nsiF $(PWD)/vimrc.bootstrap $(HOME)/.config/nvim/init.vim
@@ -7,6 +7,28 @@ init: ## 初始化安裝配置 neovim
 	ln -nsiF $(PWD)/vimrc.local.bundles $(HOME)/.config/nvim/local_bundles.vim
 	$(MAKE) plugin
 	nvim -c checkhealth
+
+.PHONY: macos-init
+macos-init: ## 初始化安裝 macOS neovim (新版 lazy.nvim + native LSP)
+	brew install neovim universal-ctags cmake ripgrep fd fzf
+	mkdir -p $(HOME)/.config/nvim
+	rm -rf $(HOME)/.config/nvim
+	ln -nsiF $(PWD)/macos/config $(HOME)/.config/nvim
+	$(MAKE) macos-providers
+	@echo "Opening neovim to install plugins..."
+	nvim --headless "+Lazy! sync" +qa
+	@echo "Done! Run 'nvim' to start."
+
+.PHONY: macos-providers
+macos-providers: ## 安裝 neovim providers (python/node/ruby)
+	$(MAKE) python
+	$(MAKE) nodejs
+	$(MAKE) ruby
+
+.PHONY: macos-update
+macos-update: ## 更新 plugins 與 LSP servers
+	nvim --headless "+Lazy! sync" +qa
+	nvim --headless "+MasonUpdate" +qa
 
 .PHONY: ruby
 ruby: ## 配置搭配的 Ruby 環境
@@ -25,7 +47,7 @@ python: ## 配置搭配的 python 環境
 	pipx install flake8
 
 .PHONY: plugin
-plugin: ## 安裝 vim 外掛
+plugin: ## 安裝 vim 外掛 (舊版 vim-plug)
 	nvim -c 'PlugInstall'
 	nvim -c 'PlugClean'
 	nvim -c 'CocInstall coc-tabnine coc-tsserver'

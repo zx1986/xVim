@@ -3,6 +3,9 @@
 
 set -e
 
+# Set offline mode for tests
+export NVIM_OFFLINE=1
+
 # Colors
 GREEN='\033[0;32m'
 RED='\033[0;31m'

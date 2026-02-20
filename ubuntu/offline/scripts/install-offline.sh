@@ -204,6 +204,15 @@ echo ""
 # 7. Setup and sync
 echo -e "${BLUE}[7/7] Running initial setup...${NC}"
 
+# Add NVIM_OFFLINE environment variable to .bashrc if not present
+if [ -f "$HOME/.bashrc" ] && ! grep -q "export NVIM_OFFLINE=1" "$HOME/.bashrc"; then
+    echo "" >> "$HOME/.bashrc"
+    echo "# Set Neovim offline mode for xVim configuration" >> "$HOME/.bashrc"
+    echo "export NVIM_OFFLINE=1" >> "$HOME/.bashrc"
+    echo "  Added NVIM_OFFLINE=1 to ~/.bashrc"
+fi
+export NVIM_OFFLINE=1
+
 # Create necessary directories
 mkdir -p "$HOME/.local/share/nvim/session"
 mkdir -p "$HOME/.local/state/nvim"
@@ -211,7 +220,7 @@ mkdir -p "$HOME/.local/state/nvim"
 # Run Lazy sync (this should work offline since plugins are already in place)
 if command -v nvim &> /dev/null; then
     echo "  Running Lazy.nvim sync..."
-    nvim --headless "+Lazy! sync" +qa 2>/dev/null || echo "  Note: Lazy sync completed with warnings"
+    NVIM_OFFLINE=1 nvim --headless "+Lazy! sync" +qa 2>/dev/null || echo "  Note: Lazy sync completed with warnings"
     echo -e "${GREEN}✓ Initial setup complete${NC}"
 else
     echo -e "${RED}✗ nvim command not found. Please check PATH.${NC}"

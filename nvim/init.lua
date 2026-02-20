@@ -17,6 +17,8 @@ require("config.options")
 require("config.keymaps")
 require("config.autocmds")
 
+local platform = require("platform")
+
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
@@ -32,7 +34,8 @@ require("lazy").setup({
     colorscheme = { "gruvbox" },
   },
   checker = {
-    enabled = false, -- Don't check for updates in offline mode
+    enabled = not platform.is_offline, -- disabled in offline mode
+    notify  = false,
   },
   performance = {
     rtp = {

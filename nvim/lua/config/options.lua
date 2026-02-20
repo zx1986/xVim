@@ -1,6 +1,7 @@
--- Vim Options (macOS version)
+-- Vim Options (shared: macOS + Ubuntu)
 
 local opt = vim.opt
+local platform = require("platform")
 
 -- Encoding
 opt.encoding = "utf-8"
@@ -41,8 +42,12 @@ opt.showcmd = true
 opt.wildmenu = true
 opt.mouse = "c"  -- Disable mouse clicks
 
--- macOS clipboard: use system clipboard via pbcopy/pbpaste
-opt.clipboard = "unnamed"
+-- Clipboard: macOS uses system clipboard via pbcopy/pbpaste
+if platform.is_macos then
+  opt.clipboard = "unnamed"
+else
+  opt.clipboard = ""
+end
 
 -- Visual settings
 opt.ruler = true
@@ -90,8 +95,11 @@ vim.g.session_autoload = "no"
 vim.g.session_autosave = "no"
 vim.g.session_command_aliases = 1
 
--- macOS: enable providers (installed via brew/pip/gem/npm)
--- Python3: pip3 install pynvim
--- Node:    npm install -g neovim
--- Ruby:    gem install neovim
--- (do NOT set loaded_*_provider = 0 here — leave for brew to resolve)
+-- Providers: disable on Linux/offline (no brew-managed runtimes)
+-- macOS: providers installed via `make providers` (pip/npm/gem)
+if platform.is_linux or platform.is_offline then
+  vim.g.loaded_python_provider = 0
+  vim.g.loaded_perl_provider   = 0
+  vim.g.loaded_ruby_provider   = 0
+  vim.g.loaded_node_provider   = 0
+end

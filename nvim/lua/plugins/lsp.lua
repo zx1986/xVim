@@ -1,4 +1,5 @@
--- LSP and completion configuration using native Neovim LSP
+-- LSP and completion configuration (shared: macOS + Ubuntu)
+local platform = require("platform")
 
 return {
   -- LSP Configuration
@@ -163,8 +164,10 @@ return {
     cmd = { "Mason", "MasonInstall", "MasonUpdate" },
     config = function()
       require("mason").setup({
-        -- For offline mode, set install_root_dir to pre-populated directory
-        install_root_dir = vim.fn.stdpath("data") .. "/lsp",
+        -- Offline mode: use pre-populated LSP directory instead of downloading
+        install_root_dir = platform.is_offline
+          and vim.fn.stdpath("data") .. "/lsp"
+          or nil,
         ui = {
           icons = {
             package_installed = "✓",
@@ -195,7 +198,7 @@ return {
           "yamlls",
           "terraformls",
         },
-        automatic_installation = false, -- Disable in offline mode
+        automatic_installation = not platform.is_offline,
       })
     end,
   },
@@ -350,7 +353,7 @@ return {
             "bash", "markdown",
           },
           sync_install = false,
-          auto_install = false,
+          auto_install = not platform.is_offline,
           highlight = {
             enable = true,
             additional_vim_regex_highlighting = false,

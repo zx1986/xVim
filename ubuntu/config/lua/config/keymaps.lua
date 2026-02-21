@@ -21,9 +21,7 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 
 -- Buffer navigation
 keymap("n", "<leader>z", ":bp<CR>", opts)
-keymap("n", "<leader>q", ":bp<CR>", opts)
 keymap("n", "<leader>x", ":bn<CR>", opts)
-keymap("n", "<leader>w", ":bn<CR>", opts)
 keymap("n", "<leader>c", ":bd<CR>", opts)
 
 -- Tab navigation

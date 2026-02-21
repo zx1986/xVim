@@ -67,7 +67,9 @@ providers: ## 安裝 Neovim providers (python / node / ruby)
 
 .PHONY: python
 python: ## Python provider: pip install pynvim
-	brew install python pipx
+	ifeq ($(OS),Darwin)
+		brew install python pipx
+	endif
 	python3 -m pip install --user --upgrade --break-system-packages pynvim
 
 .PHONY: nodejs

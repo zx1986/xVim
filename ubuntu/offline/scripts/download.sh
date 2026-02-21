@@ -126,7 +126,6 @@ declare -a PLUGINS=(
     "tpope/vim-rhubarb"
     "airblade/vim-gitgutter"
     "tpope/vim-commentary"
-    "scrooloose/nerdcommenter"
     "tpope/vim-surround"
     "Raimondi/delimitMate"
     "junegunn/fzf"
@@ -184,7 +183,7 @@ declare -a PLUGINS=(
 for plugin in "${PLUGINS[@]}"; do
     plugin_name=$(echo "$plugin" | sed 's/.*\///')
     echo "  - Cloning $plugin..."
-    
+
     if [ ! -d "$PLUGINS_DIR/$plugin_name" ]; then
         git clone --depth 1 "https://github.com/$plugin.git" "$PLUGINS_DIR/$plugin_name" 2>/dev/null || echo "    Warning: Failed to clone $plugin"
     else

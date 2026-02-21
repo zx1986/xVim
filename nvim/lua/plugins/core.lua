@@ -73,14 +73,6 @@ return {
     },
   },
 
-  -- Additional commenting
-  {
-    "scrooloose/nerdcommenter",
-    keys = {
-      { "<leader>/", mode = { "n", "v" }, desc = "Toggle comment" },
-    },
-  },
-
   -- Surround
   {
     "tpope/vim-surround",

@@ -47,7 +47,7 @@ echo ""
 if [ "$1" != "--user-only" ]; then
     echo -e "${BLUE}[2/7] Installing system dependencies...${NC}"
     cd "$PACKAGES_DIR/debs"
-    
+
     if ls *.deb 1> /dev/null 2>&1; then
         dpkg -i *.deb || apt-get install -f -y
         echo -e "${GREEN}✓ System dependencies installed${NC}"
@@ -77,9 +77,10 @@ if [ -f "$NVIM_TARBALL" ]; then
         echo "  Extracting to ~/.local..."
         mkdir -p "$HOME/.local"
         tar -xzf "$NVIM_TARBALL" -C /tmp/
-        cp -r /tmp/nvim-linux-x86_64/bin/* "$HOME/.local/bin/" 2>/dev/null || mkdir -p "$HOME/.local/bin" && cp -r /tmp/nvim-linux-x86_64/bin/* "$HOME/.local/bin/"
-        cp -r /tmp/nvim-linux-x86_64/lib/* "$HOME/.local/lib/" 2>/dev/null || mkdir -p "$HOME/.local/lib" && cp -r /tmp/nvim-linux-x86_64/lib/* "$HOME/.local/lib/"
-        cp -r /tmp/nvim-linux-x86_64/share/* "$HOME/.local/share/" 2>/dev/null || mkdir -p "$HOME/.local/share" && cp -r /tmp/nvim-linux-x86_64/share/* "$HOME/.local/share/"
+        mkdir -p "$HOME/.local/bin" "$HOME/.local/lib" "$HOME/.local/share"
+        cp -r /tmp/nvim-linux-x86_64/bin/* "$HOME/.local/bin/"
+        cp -r /tmp/nvim-linux-x86_64/lib/* "$HOME/.local/lib/"
+        cp -r /tmp/nvim-linux-x86_64/share/* "$HOME/.local/share/"
         rm -rf /tmp/nvim-linux-x86_64
         echo -e "${GREEN}✓ Neovim installed to ~/.local${NC}"
         echo -e "${YELLOW}  Make sure ~/.local/bin is in your PATH${NC}"
@@ -141,12 +142,12 @@ echo "  Debug: PLUGINS_DEST=$PLUGINS_DEST"
 if [ -d "$PLUGINS_SRC" ]; then
     plugin_count=$(ls -1 "$PLUGINS_SRC" 2>/dev/null | wc -l | tr -d ' ')
     echo "  Found $plugin_count plugins in source directory"
-    
+
     if [ "$plugin_count" -gt 0 ]; then
         cp -r "$PLUGINS_SRC"/* "$PLUGINS_DEST/" 2>/dev/null || {
             echo -e "${RED}  Warning: Failed to copy some plugins${NC}"
         }
-        
+
         installed_count=$(ls -1 "$PLUGINS_DEST" 2>/dev/null | wc -l | tr -d ' ')
         echo -e "${GREEN}✓ $installed_count plugins installed${NC}"
     else
@@ -182,14 +183,14 @@ if [ "$CONFIG_SRC" = "$CONFIG_DEST" ]; then
 elif [ -d "$CONFIG_SRC" ]; then
     # Create parent directory if it doesn't exist
     mkdir -p "$(dirname "$CONFIG_DEST")"
-    
+
     # Backup existing config
     if [ -d "$CONFIG_DEST" ]; then
         BACKUP_DIR="$CONFIG_DEST.backup.$(date +%Y%m%d_%H%M%S)"
         echo -e "${YELLOW}  Backing up existing config to: $BACKUP_DIR${NC}"
         mv "$CONFIG_DEST" "$BACKUP_DIR"
     fi
-    
+
     # Copy new config
     cp -r "$CONFIG_SRC" "$CONFIG_DEST"
     echo -e "${GREEN}✓ Configuration installed to $CONFIG_DEST${NC}"

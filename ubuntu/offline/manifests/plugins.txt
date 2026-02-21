@@ -21,7 +21,6 @@ LuaSnip
 mason-lspconfig.nvim
 mason.nvim
 matchit.zip
-nerdcommenter
 nerdtree
 nord-vim
 nvim-cmp

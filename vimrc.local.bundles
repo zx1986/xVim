@@ -16,7 +16,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend upda
 Plug 'pearofducks/ansible-vim'
 Plug 'ruby-formatter/rufo-vim'
 Plug 'ryanoasis/vim-devicons'
-Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-surround'

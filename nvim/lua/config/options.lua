@@ -95,9 +95,9 @@ vim.g.session_autoload = "no"
 vim.g.session_autosave = "no"
 vim.g.session_command_aliases = 1
 
--- Providers: disable on Linux/offline (no brew-managed runtimes)
--- macOS: providers installed via `make providers` (pip/npm/gem)
-if platform.is_linux or platform.is_offline then
+-- Providers: disable on offline
+-- providers installed via `make providers` (pip/npm/gem)
+if platform.is_offline then
   vim.g.loaded_python_provider = 0
   vim.g.loaded_perl_provider   = 0
   vim.g.loaded_ruby_provider   = 0

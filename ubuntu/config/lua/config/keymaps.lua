@@ -33,7 +33,7 @@ keymap("n", "<S-t>", ":tabnew<CR>", opts)
 keymap("n", "<leader>.", ":lcd %:p:h<CR>", opts)
 
 -- Edit/tab edit with current path
-keymap("n", "<Leader>e", ":e <C-R>=expand('%:p:h') . '/' <CR>", { noremap = true })
+keymap("n", "<Leader>oe", ":e <C-R>=expand('%:p:h') . '/' <CR>", { noremap = true })
 keymap("n", "<Leader>te", ":tabe <C-R>=expand('%:p:h') . '/' <CR>", { noremap = true })
 
 -- Clean search highlight

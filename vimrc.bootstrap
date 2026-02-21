@@ -192,7 +192,7 @@ set number
 let no_buffers_menu=1
 colorscheme gruvbox
 
-" Better command line completion 
+" Better command line completion
 set wildmenu
 
 " mouse support
@@ -200,7 +200,7 @@ set mouse=a
 
 set mousemodel=popup
 set t_Co=256
-set guioptions=egmrti
+"set guioptions=egmrti
 set gfn=Monospace\ 10
 
 if has("gui_running")
@@ -217,7 +217,7 @@ else
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
 
-  
+
 endif
 
 

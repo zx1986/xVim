@@ -12,10 +12,10 @@ Plug 'hashivim/vim-terraform'
 Plug 'ibhagwan/fzf-lua'
 Plug 'junegunn/vim-easy-align'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'pearofducks/ansible-vim'
 Plug 'ruby-formatter/rufo-vim'
 Plug 'ryanoasis/vim-devicons'
-Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-surround'

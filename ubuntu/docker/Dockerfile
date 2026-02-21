@@ -65,7 +65,7 @@ RUN mkdir -p /home/testuser/.config/nvim \
 # Set working directory
 WORKDIR /home/testuser/workspace
 
-ENV PATH="~/.local/bin:~/go/bin:${PATH}"
+ENV PATH="$HOME/.local/bin:$HOME/go/bin:${PATH}"
 
 # Default command
 CMD ["/bin/bash"]

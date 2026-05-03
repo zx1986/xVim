@@ -5,12 +5,12 @@
 ## 快速安裝
 
 ```bash
-make macos-init
+make init
 ```
 
 這會：
 1. 透過 brew 安裝 neovim、ctags、ripgrep、fzf
-2. 將 `macos/config/` 軟連結到 `~/.config/nvim`
+2. 將 `nvim/` 軟連結到 `~/.config/nvim`
 3. 安裝 Python/Node/Ruby providers
 4. 自動安裝全部 plugins（lazy.nvim）
 
@@ -22,7 +22,7 @@ brew install neovim universal-ctags cmake ripgrep fd fzf
 
 # 2. 連結配置
 rm -rf ~/.config/nvim
-ln -nsiF $(pwd)/macos/config ~/.config/nvim
+ln -nsiF $(pwd)/nvim ~/.config/nvim
 
 # 3. 安裝 providers
 make python    # pynvim
@@ -47,16 +47,16 @@ nvim
 ## 更新
 
 ```bash
-make macos-update   # 更新 plugins 與 LSP servers
+make update   # 更新 plugins 與 LSP servers
 ```
 
 ## 指令
 
 ```
 make help           # 查看所有指令
-make macos-init     # 全新安裝
-make macos-update   # 更新
-make macos-providers # 只重裝 providers
+make init           # 全新安裝
+make update         # 更新
+make providers      # 只重裝 providers
 ```
 
 ## LSP Servers

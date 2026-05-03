@@ -165,11 +165,11 @@ echo -e "${BLUE}[6/7] Installing Neovim configuration...${NC}"
 # Try multiple possible locations
 if [ -d "/home/testuser/.config/nvim" ]; then
     CONFIG_SRC="/home/testuser/.config/nvim"
-elif [ -d "$OFFLINE_DIR/../config" ]; then
-    CONFIG_SRC="$OFFLINE_DIR/../config"
+elif [ -d "$OFFLINE_DIR/../../nvim" ]; then
+    CONFIG_SRC="$OFFLINE_DIR/../../nvim"
 else
     # Fallback to computed path
-    CONFIG_SRC="$(dirname "$(dirname "$OFFLINE_DIR")")/config"
+    CONFIG_SRC="$(dirname "$(dirname "$OFFLINE_DIR")")/nvim"
 fi
 
 CONFIG_DEST="$HOME/.config/nvim"
@@ -198,7 +198,7 @@ else
     echo -e "${YELLOW}⚠ Configuration directory not found at: $CONFIG_SRC${NC}"
     echo -e "${YELLOW}  Tried locations:${NC}"
     echo -e "${YELLOW}    - /home/testuser/.config/nvim${NC}"
-    echo -e "${YELLOW}    - $OFFLINE_DIR/../config${NC}"
+    echo -e "${YELLOW}    - $OFFLINE_DIR/../../nvim${NC}"
 fi
 echo ""
 

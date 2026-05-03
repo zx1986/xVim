@@ -17,8 +17,7 @@ This repository now includes a complete offline installation solution for Ubuntu
 
 2. **Create offline archive**:
    ```bash
-   cd ubuntu
-   tar -czf nvim-offline-ubuntu.tar.gz offline/ config/
+   tar -czf nvim-offline-ubuntu.tar.gz ubuntu/offline/ nvim/
    ```
 
 3. **Transfer archive** to your offline Ubuntu 22.04 system

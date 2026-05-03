@@ -16,7 +16,7 @@ This configuration provides:
 
 ```
 ubuntu/
-├── config/                    # Neovim configuration
+├── nvim/                    # Neovim configuration (shared)
 │   ├── init.lua              # Main entry point
 │   └── lua/
 │       ├── config/           # Settings, keymaps, autocmds
@@ -71,8 +71,8 @@ Total size: ~500MB-1GB
 ### Step 2: Create Offline Archive
 
 ```bash
-cd xVim/ubuntu
-tar -czf nvim-offline-ubuntu.tar.gz offline/ config/
+cd xVim
+tar -czf nvim-offline-ubuntu.tar.gz ubuntu/offline/ nvim/
 ```
 
 ### Step 3: Transfer to Offline System
@@ -138,7 +138,7 @@ nvim --headless '+checkhealth' +qa
 | `<leader>ca` | Code action (LSP) |
 | `[g`, `]g` | Previous/Next diagnostic |
 
-See [lua/config/keymaps.lua](config/lua/config/keymaps.lua) for complete list.
+See [nvim/lua/config/keymaps.lua](nvim/lua/config/keymaps.lua) for complete list.
 
 ### Plugins Included
 
@@ -222,17 +222,17 @@ Treesitter parsers are compiled on first use. When you open a file, Neovim will 
 nvim --headless '+TSInstall lua python go javascript' +qa
 ```
 
-## Customization
+### Customization
 
 ### Add More Plugins
 
-1. Edit `config/lua/plugins/*.lua` files
-2. Add plugin to `offline/manifests/plugins.txt`
+1. Edit `nvim/lua/plugins/*.lua` files
+2. Add plugin to `ubuntu/offline/manifests/plugins.txt`
 3. Re-run `download.sh` to download new plugins
 
 ### Change Colorscheme
 
-Edit `config/lua/plugins/ui.lua`:
+Edit `nvim/lua/plugins/ui.lua`:
 
 ```lua
 -- Change from gruvbox to nord
@@ -243,7 +243,8 @@ Available: gruvbox, nord, solarized
 
 ### Configure LSP Servers
 
-Edit `config/lua/plugins/lsp.lua` to customize LSP server settings.
+Edit `nvim/lua/plugins/lsp.lua` to customize LSP server settings.
+
 
 ## Differences from macOS Configuration
 

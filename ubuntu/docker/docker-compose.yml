@@ -10,7 +10,7 @@ services:
 
     volumes:
       # Mount config 
-      - ../config:/home/testuser/.config/nvim:ro
+      - ../../nvim:/home/testuser/.config/nvim:ro
 
       # Mount offline packages for installation
       - ../offline:/opt/nvim-offline:ro

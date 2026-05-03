@@ -8,7 +8,7 @@ cd xVim/ubuntu/offline/scripts
 
 # Create archive
 cd ../..
-tar -czf nvim-offline-ubuntu.tar.gz offline/ config/
+tar -czf nvim-offline-ubuntu.tar.gz ubuntu/offline/ nvim/
 ```
 
 ## For Offline Ubuntu 22.04 System

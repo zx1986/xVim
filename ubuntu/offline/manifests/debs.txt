@@ -1,8 +1,0 @@
-# System dependencies (.deb packages) for Ubuntu 22.04
-
-universal-ctags
-ripgrep
-fd-find
-git
-curl
-wget

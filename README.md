@@ -1,69 +1,35 @@
-### macOS Usage
+# xVim
 
-    make init
-    make update
+Modern Neovim configuration for macOS.
 
-### Ubuntu 22.04 Offline Installation
+## Installation
 
-This repository now includes a complete offline installation solution for Ubuntu 22.04 systems without internet access.
+### Prerequisites
 
-#### Prerequisites (One-time, with Internet)
+- macOS
+- [Homebrew](https://brew.sh/)
+- Node.js (for some LSP servers)
+- Python 3
 
-1. **Download all packages** (on a machine with internet):
-   ```bash
-   cd ubuntu/offline/scripts
-   ./download.sh
-   ```
-
-2. **Create offline archive**:
-   ```bash
-   tar -czf nvim-offline-ubuntu.tar.gz ubuntu/offline/ nvim/
-   ```
-
-3. **Transfer archive** to your offline Ubuntu 22.04 system
-
-#### Installation (Offline System)
-
-1. **Extract archive**:
-   ```bash
-   tar -xzf nvim-offline-ubuntu.tar.gz
-   cd ubuntu/offline/scripts
-   ```
-
-2. **Run offline installer**:
-   ```bash
-   sudo ./install-offline.sh
-   # Or for user-only installation (no sudo):
-   ./install-offline.sh --user-only
-   ```
-
-3. **Verify installation**:
-   ```bash
-   ./verify.sh
-   nvim --headless '+checkhealth' +qa
-   ```
-
-#### Testing with Docker
+### Setup
 
 ```bash
-cd ubuntu/docker
-./test-install.sh
+make init
 ```
 
-See [ubuntu/README.md](ubuntu/README.md) for detailed documentation.
+## Usage
 
-### Terminology
+- `make update`: Update all plugins and Mason packages.
+- `make clean`: Remove all configuration and Neovim data.
 
-- ftdetect: file type detect
-- ftplugin: file type plugin
-- bundle: Vimbundle a.k.a vundle
+## Structure
 
-    echo $VIMRUNTIME
+- `nvim/`: Core Neovim configuration (Lua).
+  - `init.lua`: Entry point.
+  - `lua/config/`: Options, keymaps, and autocmds.
+  - `lua/plugins/`: Plugin specifications via `lazy.nvim`.
 
-### References
+## References
 
-- https://github.com/amix/vimrc
-- https://github.com/vgod/vimrc
-- https://github.com/spf13/spf13-vim
-- https://github.com/SpaceVim
-- https://github.com/neovim
+- [lazy.nvim](https://github.com/folke/lazy.nvim)
+- [Mason.nvim](https://github.com/williamboman/mason.nvim)

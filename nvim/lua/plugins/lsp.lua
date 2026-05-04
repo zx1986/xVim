@@ -1,5 +1,4 @@
 -- LSP and completion configuration (shared: macOS + Ubuntu)
-local platform = require("platform")
 
 return {
   -- LSP Configuration
@@ -164,10 +163,6 @@ return {
     cmd = { "Mason", "MasonInstall", "MasonUpdate" },
     config = function()
       require("mason").setup({
-        -- Offline mode: use pre-populated LSP directory instead of downloading
-        install_root_dir = platform.is_offline
-          and vim.fn.stdpath("data") .. "/lsp"
-          or nil,
         ui = {
           icons = {
             package_installed = "✓",
@@ -198,7 +193,7 @@ return {
           "yamlls",
           "terraformls",
         },
-        automatic_installation = not platform.is_offline,
+        automatic_installation = true,
       })
     end,
   },
@@ -353,7 +348,7 @@ return {
             "bash", "markdown",
           },
           sync_install = false,
-          auto_install = not platform.is_offline,
+          auto_install = true,
           highlight = {
             enable = true,
             additional_vim_regex_highlighting = false,

@@ -94,12 +94,3 @@ vim.g.session_directory = "~/.config/nvim/session"
 vim.g.session_autoload = "no"
 vim.g.session_autosave = "no"
 vim.g.session_command_aliases = 1
-
--- Providers: disable on offline
--- providers installed via `make providers` (pip/npm/gem)
-if platform.is_offline then
-  vim.g.loaded_python_provider = 0
-  vim.g.loaded_perl_provider   = 0
-  vim.g.loaded_ruby_provider   = 0
-  vim.g.loaded_node_provider   = 0
-end

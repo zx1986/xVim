@@ -17,8 +17,6 @@ require("config.options")
 require("config.keymaps")
 require("config.autocmds")
 
-local platform = require("platform")
-
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {

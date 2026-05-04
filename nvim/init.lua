@@ -34,7 +34,7 @@ require("lazy").setup({
     colorscheme = { "gruvbox" },
   },
   checker = {
-    enabled = not platform.is_offline, -- disabled in offline mode
+    enabled = true,
     notify  = false,
   },
   performance = {

@@ -1,7 +1,6 @@
--- Vim Options (shared: macOS + Ubuntu)
+-- Vim Options (macOS)
 
 local opt = vim.opt
-local platform = require("platform")
 
 -- Encoding
 opt.encoding = "utf-8"
@@ -43,11 +42,7 @@ opt.wildmenu = true
 opt.mouse = "c"  -- Disable mouse clicks
 
 -- Clipboard: macOS uses system clipboard via pbcopy/pbpaste
-if platform.is_macos then
-  opt.clipboard = "unnamed"
-else
-  opt.clipboard = ""
-end
+opt.clipboard = "unnamed"
 
 -- Visual settings
 opt.ruler = true

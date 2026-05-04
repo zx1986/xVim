@@ -9,8 +9,9 @@ init: ## Initialize Neovim configuration for macOS
 	@echo "Installing macOS dependencies..."
 	brew install neovim universal-ctags cmake ripgrep fd fzf
 	@echo "Setting up configuration symlink..."
+	mkdir -p $(HOME)/.config
 	rm -rf $(HOME)/.config/nvim
-	ln -nsiF $(PWD)/nvim $(HOME)/.config/nvim
+	ln -nsF $(PWD)/nvim $(HOME)/.config/nvim
 	@echo "Installing Python provider..."
 	python3 -m pip install --user --upgrade --break-system-packages pynvim
 	@echo "Installing Node provider..."

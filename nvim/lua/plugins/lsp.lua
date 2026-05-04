@@ -1,4 +1,4 @@
--- LSP and completion configuration (shared: macOS + Ubuntu)
+-- LSP and completion configuration (macOS)
 
 return {
   -- LSP Configuration
